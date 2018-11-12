@@ -1,0 +1,37 @@
+body > header
+{
+    text-align: center;
+}
+
+#title
+{
+    margin-bottom: 0;
+}
+
+#signup
+{
+    margin-top: 0;
+    text-align: center;
+}
+
+#register
+{
+    margin-top: 20px;
+}
+
+#register > input
+{
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

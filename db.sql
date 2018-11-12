@@ -46,6 +46,3 @@ CREATE TABLE comment
     content TEXT NOT NULL,
     points INTEGER NOT NULL
 );
-
-
-
