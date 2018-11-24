@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+body
+{
+    background-color: black;
+}
+
+body *
+{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+body > header
+{
+    border-bottom-style: solid;
+    border-bottom-color: gray;
+}
+
+#title
+{
+    font-size: 50pt;
+    text-decoration: none;
+    color: orangered;
+}
+
+body > header > nav *
+{
+    text-decoration: none;
+    color: white;
+}
+
+#profile
+{
+    font-size: 16pt;
+}
+

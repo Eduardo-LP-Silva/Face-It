@@ -1,23 +1,20 @@
 CREATE TABLE client
 (
-    client INTEGER PRIMARY KEY,
-    username TEXT NOT NULL,
+    username TEXT PRIMARY KEY,
     pw TEXT NOT NULL,
     karma INTEGER NOT NULL
 );
 
 CREATE TABLE user_profile
 (   
-    user_profile INTEGER PRIMARY KEY,
-    client INTEGER REFERENCES client,
+    client INTEGER REFERENCES client PRIMARY KEY,
     personal_description TEXT,
     picture IMAGE -- Might have to replace with text containing path
 );
 
 CREATE TABLE channel
 (
-    channel INTEGER PRIMARY KEY,
-    channel_name TEXT NOT NULL,
+    channel_name TEXT PRIMARY KEY,
     channel_description TEXT
 );
 
@@ -46,3 +43,5 @@ CREATE TABLE comment
     content TEXT NOT NULL,
     points INTEGER NOT NULL
 );
+
+INSERT INTO client VALUES ('3duardo_S', 1234, 500);

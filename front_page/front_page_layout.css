@@ -1,0 +1,58 @@
+body
+{
+    display: grid;
+    grid-template-columns: [start] 1fr [middle] 5fr [end];
+    grid-template-rows: [start] 1fr [header] auto [end]; 
+}
+
+body > header
+{
+    grid-column-start: start;
+    grid-column-end: end;
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+
+    display:grid;
+    grid-template-columns: [start] 1fr [nav] 3fr [end];
+    grid-template-rows: 1fr;
+
+    max-height: 90px;
+}
+
+#title
+{
+    grid-column: start;
+    grid-row: 1;
+    padding-left: 10px;
+}
+
+body > header > nav
+{
+    grid-column: nav;
+    grid-row: 1;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile_pic > img
+{
+    border-radius: 50%;
+    max-width: 80px;
+}
+
+#profile
+{
+    padding-left: 30px;
+    padding-right: 20px;
+    border-right: 1px solid white;
+}
+
+#signout
+{
+    padding-left: 20px;
+}
+
