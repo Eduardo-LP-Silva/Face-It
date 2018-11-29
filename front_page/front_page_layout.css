@@ -1,12 +1,17 @@
 body > header
 {
     display:grid;
-    grid-template-columns: [start] 1fr [nav] 3fr [end];
+    grid-template-columns: [start] 12em [subtitle] 20em [nav] 1fr [end];
     grid-template-rows: 1fr;
     position: fixed;
     width: 100%;
     top: 0;
     overflow: hidden;
+}
+
+#subtitle
+{
+    padding-top: 1em;
 }
 
 #title
@@ -22,7 +27,8 @@ body > header > nav
     grid-row: 1;
     text-align: right;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    padding-right: 2em;
     align-items: center;
 }
 
@@ -49,7 +55,7 @@ body > header > nav
     position: fixed;
     top: 5.4em;
     left: 1em;
-    max-width: 7.5em;
+    width: 9em;
     overflow-x: hidden;
 }
 
@@ -62,15 +68,16 @@ body > header > nav
 
 #channels > ul *
 {
-    padding-bottom: 0.6em;
     direction: ltr;
     text-align: center;
+    border-bottom: 0.1em solid gray;
+    margin-bottom: 0.5em;
 }
 
 #stories
 {
     margin-top: 6em;
-    margin-left: 6.5em;
+    margin-left: 11em;
     grid-column-start: channels;
     grid-column-end: end;
     grid-row: header;
@@ -79,9 +86,10 @@ body > header > nav
 .story
 {
     display: grid;
-    grid-template-columns: [start] 5em [title] 35em [image] 3em [comment] 15em [end];
+    grid-template-columns: [start] 5em [title] 35em [image] 6.5em [comment] 5em [OP] 10em [channel] 5em [end];
     grid-template-rows: [start] 2em [number_top] 2.5em [number_bottom] 2em [end];
-    width: 55em;
+    width: 67em;
+    margin-bottom: 1em;
 }
 
 /* Upvote Symbol */
@@ -118,13 +126,19 @@ body > header > nav
 }
 
 /* Image */
-.story > img:nth-child(5)
+.story > a:nth-child(5)
 {
     grid-column: image;
     grid-row-start: start;
-    grid-row-end: end;
+    grid-row-end: end;    
+}
+
+.story > a:nth-child(5) > img
+{
     padding-left: 1em;
+    padding-top: 0.5em;
     width: 5.5em;
+    height: 5.5em;
 }
 
 /* Comments Symbol */
@@ -141,5 +155,40 @@ body > header > nav
     grid-column: comment;
     grid-row: number_top;
 }
+
+/* OP Symbol */
+.story > img:nth-child(8)
+{
+    padding-top: 1em;
+    padding-left: 4.2em;
+    grid-column: OP;
+    grid-row: start;
+}
+
+/* OP */
+.story > a:nth-child(9)
+{
+    padding-top: 1em;
+    grid-column: OP;
+    grid-row: number_top;
+}
+
+/* Channel Icon */
+.story > img:nth-child(10)
+{
+    padding-top: 1em;
+    padding-left: 1.6em;
+    grid-column: channel;
+    grid-row: start;
+}
+
+/* Channel */
+.story > a:nth-child(11)
+{
+    padding-top: 1em;
+    grid-column: channel;
+    grid-row: number_top;
+}
+
 
 

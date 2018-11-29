@@ -24,6 +24,13 @@ body > header
     color: orangered;
 }
 
+#subtitle
+{
+    font-size: 25pt;
+    text-decoration: none;
+    color: white;
+}
+
 body > header > nav *
 {
     text-decoration: none;
@@ -70,7 +77,7 @@ body > header > nav *
 /* Title */
 .story > a:nth-child(4)
 {
-    font-size: 20pt;
+    font-size: 18pt;
     border-right: 2px solid gray;
 }
 
