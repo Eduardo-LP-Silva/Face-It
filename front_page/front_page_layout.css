@@ -1,31 +1,19 @@
-body
-{
-    display: grid;
-    grid-template-columns: [start] 1fr [middle] 5fr [end];
-    grid-template-rows: [start] 1fr [header] auto [end]; 
-}
-
 body > header
 {
-    grid-column-start: start;
-    grid-column-end: end;
-
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-bottom: 10px;
-
     display:grid;
     grid-template-columns: [start] 1fr [nav] 3fr [end];
     grid-template-rows: 1fr;
-
-    max-height: 90px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
 }
 
 #title
 {
     grid-column: start;
     grid-row: 1;
-    padding-left: 10px;
+    padding-left: 0.5%;
 }
 
 body > header > nav
@@ -41,18 +29,117 @@ body > header > nav
 #profile_pic > img
 {
     border-radius: 50%;
-    max-width: 80px;
+    width: 4.5em;
 }
 
 #profile
 {
-    padding-left: 30px;
-    padding-right: 20px;
-    border-right: 1px solid white;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-right: 0.05em solid white;
 }
 
 #signout
 {
-    padding-left: 20px;
+    padding-left: 1.2em
 }
+
+#channels
+{
+    position: fixed;
+    top: 5.4em;
+    left: 1em;
+    max-width: 7.5em;
+    overflow-x: hidden;
+}
+
+#channels > ul
+{
+    height: 50em;
+    overflow-y: auto;
+    direction: rtl;
+}
+
+#channels > ul *
+{
+    padding-bottom: 0.6em;
+    direction: ltr;
+    text-align: center;
+}
+
+#stories
+{
+    margin-top: 6em;
+    margin-left: 6.5em;
+    grid-column-start: channels;
+    grid-column-end: end;
+    grid-row: header;
+}
+
+.story
+{
+    display: grid;
+    grid-template-columns: [start] 5em [title] 35em [image] 3em [comment] 15em [end];
+    grid-template-rows: [start] 2em [number_top] 2.5em [number_bottom] 2em [end];
+    width: 55em;
+}
+
+/* Upvote Symbol */
+.story > img:nth-child(1)
+{
+    grid-column: start;
+    grid-row: start;
+    margin: auto;
+}
+
+/* Number of Points */
+.story > p:nth-child(2)
+{
+    grid-column: start;
+    grid-row: number_top;
+    margin: 0;
+    padding-top: 0.3em;
+}
+
+/* Downvote Symbol */
+.story > img:nth-child(3)
+{
+    grid-column: start;
+    grid-row: number_bottom;
+    margin: auto;
+}
+
+/* Title */
+.story > a:nth-child(4)
+{
+    grid-column: title;
+    grid-row: number_top;
+    overflow-y: hidden;
+}
+
+/* Image */
+.story > img:nth-child(5)
+{
+    grid-column: image;
+    grid-row-start: start;
+    grid-row-end: end;
+    padding-left: 1em;
+    width: 5.5em;
+}
+
+/* Comments Symbol */
+.story > a:nth-child(6)
+{
+    padding-top: 1em;
+    grid-column: comment;
+    grid-row: start;
+}
+
+/* Number of Comments */
+.story > p:nth-child(7)
+{
+    grid-column: comment;
+    grid-row: number_top;
+}
+
 

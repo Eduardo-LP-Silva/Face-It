@@ -39,7 +39,7 @@ CREATE TABLE comment
 (
     comment INTEGER PRIMARY KEY,
     client INTEGER REFERENCES client,
-    story INTEGER REFERENCES story,
+    story INTEGER REFERENCES story, -- Maybe add reference to comment
     content TEXT NOT NULL,
     points INTEGER NOT NULL
 );

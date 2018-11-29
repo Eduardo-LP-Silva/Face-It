@@ -14,6 +14,7 @@ body > header
 {
     border-bottom-style: solid;
     border-bottom-color: gray;
+    background-color: black;
 }
 
 #title
@@ -32,5 +33,44 @@ body > header > nav *
 #profile
 {
     font-size: 16pt;
+}
+
+#channels
+{
+    border-right-style: solid;
+    border-right-color: gray;
+}
+
+#channels > ul *
+{
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
+
+.story
+{
+    border: 2px solid gray;
+}
+
+.story > *
+{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+/* Number of Points */
+.story > p:nth-child(2)
+{
+    font-size: 16pt;
+    border-right: 2px solid gray;
+}
+
+/* Title */
+.story > a:nth-child(4)
+{
+    font-size: 20pt;
+    border-right: 2px solid gray;
 }
 
