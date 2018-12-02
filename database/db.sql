@@ -50,7 +50,8 @@ CREATE TABLE story
     picture IMAGE, -- Might have to replace with text containing path
     points INTEGER NOT NULL,
     comment_number INTEGER NOT NULL CHECK(comment_number >= 0),
-    channel INTEGER REFERENCES channel
+    post_date TEXT NOT NULL,
+    channel TEXT REFERENCES channel
 );
 
 CREATE TABLE comment
@@ -60,6 +61,7 @@ CREATE TABLE comment
     story INTEGER REFERENCES story,
     parent_comment INTEGER REFERENCES comment,
     content TEXT NOT NULL,
+    comment_date TEXT NOT NULL,
     points INTEGER NOT NULL
 );
 
@@ -150,9 +152,13 @@ INSERT INTO client(username, pw, karma) VALUES ('FF7', 5678, 212);
 INSERT INTO user_profile(client, personal_description, picture) VALUES ('3duardo_S', 'O Marinheiro', NULL);
 INSERT INTO channel(channel_name, channel_description) VALUES ('WatchPeopleDie', 'A place for morbid curiosity');
 INSERT INTO client_channel(client, channel) VALUES ('Des_locado', 'WatchPeopleDie');
-INSERT INTO story(story, client, title, content, picture, points, comment_number, channel) VALUES (1, '3duardo_S', 'Hello World', NULL, NULL, 1, 0, 'WatchPeopleDie');
-INSERT INTO comment(comment, client, story, parent_comment, content, points) VALUES (1, '3duardo_S', 1, NULL, 'Wrong channel', 2);
-INSERT INTO comment(comment, client, story, parent_comment, content, points) VALUES (2, 'FF7', NULL, 1, 'True', 1);
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
+    (1, '3duardo_S', 'Hello World', NULL, NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
+    (2, 'FF7', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
+INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
+    (1, '3duardo_S', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00.0000', 2);
+INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
+    (2, 'FF7', NULL, 1, 'True', '2018-12-02 14:31:00.0000', 1);
 INSERT INTO likes_story(client, story, points) VALUES ('Des_locado', 1, 1);
 INSERT INTO likes_comment(client, comment, points) VALUES ('3duardo_S', 1, 1);
-

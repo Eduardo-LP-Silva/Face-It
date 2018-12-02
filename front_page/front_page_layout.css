@@ -88,7 +88,7 @@ body > header > nav
     display: grid;
     grid-template-columns: [start] 5em [title] 35em [image] 6.5em [comment] 5em [OP] 10em [channel] 5em [end];
     grid-template-rows: [start] 2em [number_top] 2.5em [number_bottom] 2em [end];
-    width: 67em;
+    width: 73em;
     margin-bottom: 1em;
 }
 
