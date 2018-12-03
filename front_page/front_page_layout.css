@@ -130,7 +130,7 @@ body > header > nav
 {
     grid-column: image;
     grid-row-start: start;
-    grid-row-end: end;    
+    grid-row-end: end;
 }
 
 .story > a:nth-child(5) > img
@@ -189,6 +189,3 @@ body > header > nav
     grid-column: channel;
     grid-row: number_top;
 }
-
-
-
