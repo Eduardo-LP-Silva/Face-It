@@ -18,7 +18,11 @@ body > header
 }
 
 #profile_pic{
-  margin-left: 35rem;
+  margin-left: 35em;
+}
+
+header{
+  float: right;
 }
 
 #title

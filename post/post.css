@@ -1,3 +1,79 @@
 h1{
-  color:red;
+  color:white;
+  text-align: center;
+  margin-top: 8rem;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height: 30%;
+}
+
+#content{
+  margin-left: 11em;
+  border-bottom: 0.3em solid red;
+}
+
+#description{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 2em;
+  color:white;
+}
+
+#postData{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75em;
+  color:white;
+}
+
+#commentInput{
+  margin-left: 11em;
+  color: white;
+  border-bottom: 0.3em solid red;
+}
+
+#commentsNumber{
+  margin-top:2em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75em;
+}
+
+input{
+  margin-top: 1em;
+  margin-bottom: 2em;
+  width: 98.5%;
+  height: 3em;
+  border-radius:10px;
+}
+
+#comments{
+  margin-left: 11em;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.commentUser{
+  color: lightblue;
+  margin-right: 5em;
+}
+
+span{
+  margin-right: 1em;
+}
+
+.comment{
+  margin-top:0.2em;
+  border-top: 0.1em solid gray;
+  border-bottom: 0.1em solid gray;
+}
+
+.commentData{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.commentDesc{
+  font-family: Arial, Helvetica, sans-serif;
 }
