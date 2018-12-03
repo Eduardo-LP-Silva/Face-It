@@ -153,7 +153,7 @@ INSERT INTO user_profile(client, personal_description, picture) VALUES ('3duardo
 INSERT INTO channel(channel_name, channel_description) VALUES ('WatchPeopleDie', 'A place for morbid curiosity');
 INSERT INTO client_channel(client, channel) VALUES ('Des_locado', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (1, '3duardo_S', 'Hello World', NULL, NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
+    (1, 'Des_locado', 'Hello World', NULL, NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
     (2, 'FF7', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 

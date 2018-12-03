@@ -67,6 +67,12 @@ body > header > nav *
     text-align: center;
 }
 
+/* Upvote Button */
+.story > form:nth-child(1) > button
+{
+    background-image: url("../assets/like.png");
+}
+
 /* Number of Points */
 .story > p:nth-child(2)
 {
@@ -79,4 +85,10 @@ body > header > nav *
 {
     font-size: 18pt;
     border-right: 2px solid gray;
+}
+
+/* ID */
+.story > span:nth-child(12)
+{
+    display: none;
 }
