@@ -75,13 +75,9 @@ function vote_story(button, votes, substitue_items = true)
         else
         {
             if(substitue_items)
-            {
                 replace_vote_number(button, votes);
 
-                //if(votes > 0)
-                    //replace_vote_symbol(button, "../assets/like.png")
-            }
-                
+            replace_vote_symbol(button, votes);    
         }
     }
 
@@ -110,11 +106,8 @@ function remove_story_vote(button, vote, extra_vote)
             }
             else
                 replace_vote_number(button, -vote);
-                
 
-        
-            //Replace Symbol
-            
+            replace_vote_symbol(button, vote, true);
         }
     }
 
@@ -133,9 +126,26 @@ function replace_vote_number(button, vote_to_add)
     n_points.replaceChild(updated_points, n_points.firstChild);
 }
 
-function replace_vote_symbol(button, new_symbol)
+function replace_vote_symbol(button, votes, remove = false)
 {
+    let parentNode = button.parentNode;
+    let upvotePath, downvotePath;
 
+    if(remove)
+    {
+        upvotePath = "../assets/like.png";
+        downvotePath = "../assets/dislike.png";
+    }
+    else
+    {
+        upvotePath = "../assets/like_pressed.png";
+        downvotePath = "../assets/dislike_pressed.png";
+    }
+
+    if(votes > 0)
+        parentNode.children[0].setAttribute("src", upvotePath)
+    else
+        parentNode.children[2].setAttribute("src", downvotePath)
 }
 
 

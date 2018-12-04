@@ -13,6 +13,8 @@
         );
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        $front_page_stories = $stmt->fetchAll();
+
+        return $front_page_stories;
     }
 ?>

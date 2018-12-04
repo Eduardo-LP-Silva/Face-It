@@ -1,25 +1,43 @@
 <?php
 
-    $db = new PDO('sqlite:../db.db');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if(!empty($_GET))
+    {
+        $db = new PDO('sqlite:../db.db');
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+        $client = $_GET['client'];
+        $story = $_GET['story'];
 
-    $client = $_GET['client'];
-    $story = $_GET['story'];
+        $array = prepare_and_execute_statement($db, $story, $client);
+    
+        echo json_encode($array);
+    }
 
-    $stmt = $db->prepare
-    (
-        "SELECT story, points
-        FROM likes_story
-        WHERE client = :client
-        AND story = :story"
-    );
-    $stmt->execute(array
-    (
-        ':client' => $client, 
-        ':story' => $story
-    ));
+    function get_personal_story_votes($story, $client)
+    {
+        global $db;
 
-    $array = $stmt->fetchAll();
+        $res = prepare_and_execute_statement($db, $story, $client);
+        
+        return $res;
+    }
 
-    echo json_encode($array);
+    function prepare_and_execute_statement($db, $story, $client)
+    {
+        $stmt = $db->prepare
+        (
+            "SELECT story, points
+            FROM likes_story
+            WHERE client = :client
+            AND story = :story"
+        );
+        $stmt->execute(array
+        (
+            ':client' => $client, 
+            ':story' => $story
+        ));
+
+        return $stmt->fetchAll();
+    }
+    
 ?>

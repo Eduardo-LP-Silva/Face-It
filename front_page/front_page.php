@@ -1,6 +1,8 @@
 <?php
   include_once('../database/connection.php');
   include_once('../database/stories/get_stories.php');
+  include('../database/votes/get_personal_story_votes.php');
+  include('../utils/utils.php');
 
   $stories = getFrontPageStories();
 ?>
@@ -13,9 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="front_page_style.css" rel="stylesheet"/>
     <link href="front_page_layout.css" rel="stylesheet"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../scripts/story_vote.js" defer> </script>
-  </head>
   <body>
 
     <?php include('../templates/navbar.php');?>
@@ -26,10 +26,33 @@
       { ?>
         <div class="story" id=<?=$story['ID']?>>
 
-          <?php  ?>
-          <img src="../assets/like.png" alt="Like Button"/>
+          <?php $points = get_personal_story_votes($story['ID'], 'Des_locado'); //Mudar para user
+           
+            if(!empty($points))
+            {
+              $points = $points[0]['points'];
+
+              if($points == 1)
+              {
+                $like_path = "../assets/like_pressed.png";
+                $dislike_path = "../assets/dislike.png";
+              }
+              else
+              {
+                $like_path = "../assets/like.png";
+                $dislike_path = "../assets/dislike_pressed.png";
+              }
+            }
+            else
+            {
+              $like_path = "../assets/like.png";
+              $dislike_path = "../assets/dislike.png";
+            }
+           ?>
+
+          <img src=<?php echo $like_path ?> alt="Like Button"/>
           <p> <?=$story['points']?> </p>
-          <img src="../assets/dislike.png" alt="Dislike Button" />
+          <img src=<?php echo $dislike_path ?> alt="Dislike Button" />
           <a href="front_page.html"> <?=$story['title']?> </a> <!-- Change href's to post -->
           <a href="front_page.html"> <img src=<?php if($story['picture' == null]) echo '../assets/no_image.png'?>
             alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
@@ -44,5 +67,6 @@
         <?php
       } ?>
     </section>
+  </head>
   </body>
 </html>
