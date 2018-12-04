@@ -9,7 +9,7 @@ for(let i = 0; i < voteBts.length; i++)
         user_likes.onload = function()
         {
             let results = JSON.parse(this.responseText);
-            let aditionalInstruction = false;
+            let aditionalInstruction = 0;
 
             if (results.length != 0) //Already Voted
             {
@@ -17,17 +17,16 @@ for(let i = 0; i < voteBts.length; i++)
                 {
                     //Downvote
                     if(voteBts[i].nextElementSibling.nodeName != "P")
-                        aditionalInstruction = true;
+                        aditionalInstruction = -1;
 
-                    remove_story_upvote(voteBts[i], aditionalInstruction);
-                    
+                    remove_story_vote(voteBts[i], 1, aditionalInstruction);
                 }
                 else
                 {
                     if(voteBts[i].nextElementSibling.nodeName == "P")
-                        aditionalInstruction = true;
+                        aditionalInstruction = 1;
 
-                    remove_story_downvote(voteBts[i], aditionalInstruction);
+                    remove_story_vote(voteBts[i], -1, aditionalInstruction);
                     
                 }
             }
@@ -35,13 +34,9 @@ for(let i = 0; i < voteBts.length; i++)
             {
                 //Downvote
                 if(voteBts[i].nextElementSibling.nodeName != "P")
-                {
-                    downvote_story(voteBts[i]);
-                }
+                    vote_story(voteBts[i], -1);
                 else
-                {
-                    upvote_story(voteBts[i]);
-                }
+                    vote_story(voteBts[i], 1);
             }
         }
         
@@ -69,61 +64,35 @@ function getNewXMLHttpRequest()
     return request;
 }
 
-function upvote_story(button)
+function vote_story(button, votes, substitue_items = true)
 {
     let request = getNewXMLHttpRequest();
 
     request.onload = function()
     {
         if(request.responseText != 0)
-            console.log("Error in upvoting story - " + request.responseText);
+            console.log("Error in voting story - " + request.responseText);
         else
         {
-            //Update points number
-            let parentNode = button.parentNode;
-            let n_points = parentNode.children[1];
-            let updated_points = document.createTextNode(parseInt(n_points.firstChild.nodeValue) + 1);
-            n_points.replaceChild(updated_points, n_points.firstChild);
+            if(substitue_items)
+            {
+                replace_vote_number(button, votes);
 
-            //Replace Symbol
+                //if(votes > 0)
+                    //replace_vote_symbol(button, "../assets/like.png")
+            }
+                
         }
     }
 
     //Mudar para user
     let linktoexecute = "../database/votes/vote_story.php?client=" + "Des_locado" + "&story_id=" + button.parentNode.id 
-        + "&vote=" + 1; 
+        + "&vote=" + votes; 
     request.open("GET", linktoexecute, true);
     request.send();
 }
 
-function downvote_story(button)
-{
-    let request = getNewXMLHttpRequest();
-
-    request.onload = function()
-    {
-        if(request.responseText != 0)
-            console.log("Error in downvoting story - " + request.responseText);
-        else
-        {
-            //Update points number
-            let parentNode = button.parentNode;
-            let n_points = parentNode.children[1];
-            let updated_points = document.createTextNode(parseInt(n_points.firstChild.nodeValue) - 1);
-            n_points.replaceChild(updated_points, n_points.firstChild);
-
-            //Replace Symbol
-        }
-    }
-
-    //Mudar para user
-    let linktoexecute = "../database/votes/vote_story.php?client=" + "Des_locado" + "&story_id=" + button.parentNode.id 
-        + "&vote=" + "-1"; 
-    request.open("GET", linktoexecute, true);
-    request.send();
-}
-
-function remove_story_upvote(button, downvote)
+function remove_story_vote(button, vote, extra_vote)
 {
     let request = getNewXMLHttpRequest();
 
@@ -133,56 +102,40 @@ function remove_story_upvote(button, downvote)
             console.log("Error in removing upvote from story - " + request.responseText);
         else
         {
-            //Update points number
-            let parentNode = button.parentNode;
-            let n_points = parentNode.children[1];
-            let updated_points = document.createTextNode(parseInt(n_points.firstChild.nodeValue) - 1);
-            n_points.replaceChild(updated_points, n_points.firstChild);
-
-            //Replace Symbol
-
             //Execute Second Instruction
-            if(downvote)
-                downvote_story(button);
+            if(extra_vote != 0)
+            {
+                vote_story(button, extra_vote, false);
+                replace_vote_number(button, -vote + extra_vote);
+            }
+            else
+                replace_vote_number(button, -vote);
+                
+
+        
+            //Replace Symbol
+            
         }
     }
 
     //Mudar para user
     let linktoexecute = "../database/votes/remove_story_vote.php?client=" + "Des_locado" + "&story_id=" 
-        + button.parentNode.id + "&vote=" + 1; 
+        + button.parentNode.id + "&vote=" + vote; 
     request.open("GET", linktoexecute, true);
     request.send();
 }
 
-function remove_story_downvote(button, upvote)
+function replace_vote_number(button, vote_to_add)
 {
-    let request = getNewXMLHttpRequest();
+    let parentNode = button.parentNode;
+    let n_points = parentNode.children[1];
+    let updated_points = document.createTextNode(parseInt(n_points.firstChild.nodeValue) + vote_to_add);
+    n_points.replaceChild(updated_points, n_points.firstChild);
+}
 
-    request.onload = function()
-    {
-        if(request.responseText != 0)
-            console.log("Error in removing downvote from story - " + request.responseText);
-        else
-        {
-            //Update points number
-            let parentNode = button.parentNode;
-            let n_points = parentNode.children[1];
-            let updated_points = document.createTextNode(parseInt(n_points.firstChild.nodeValue) + 1);
-            n_points.replaceChild(updated_points, n_points.firstChild);
+function replace_vote_symbol(button, new_symbol)
+{
 
-            //Replace Symbol
-
-            //Executes Second Instruction
-            if(upvote)
-                upvote_story(button);
-        }
-    }
-
-    //Mudar para user
-    let linktoexecute = "../database/votes/remove_story_vote.php?client=" + "Des_locado" + "&story_id=" 
-        + button.parentNode.id + "&vote=" + "-1"; 
-    request.open("GET", linktoexecute, true);
-    request.send();
 }
 
 

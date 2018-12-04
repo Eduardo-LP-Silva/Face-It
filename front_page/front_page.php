@@ -25,6 +25,8 @@
       <?php foreach($stories as $story)
       { ?>
         <div class="story" id=<?=$story['ID']?>>
+
+          <?php  ?>
           <img src="../assets/like.png" alt="Like Button"/>
           <p> <?=$story['points']?> </p>
           <img src="../assets/dislike.png" alt="Dislike Button" />
