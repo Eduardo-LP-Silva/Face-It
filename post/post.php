@@ -12,8 +12,11 @@
     <div id = "content">
       <h1>Homossexualidade ainda é motivo de preconceito?</h1>
       <img src="../assets/deslocado.jpg">
-      <p id = "description">Em pleno séc. XXI ainda existem grandes problemas no que diz respeito à integração daqueles que apresentam traços diferentes relativamente aos padrões da nossa sociedade.
-      Esperemos que esta imagem ajude a mudar mentalidades preconceituosas. Apresentamos por isso Joāo Alves, membro dessa espécie.</p>
+      <p id = "description"> <span style="display:inline-block; width: 2em;"></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+      </p>
       <p id = "postData"> 3duardo S posted this on 03/12/2018</p>
     </div>
 
@@ -25,10 +28,79 @@
     </div>
 
     <div id="comments">
-      <div class = "comment">
-        <p class = "commentData"><span class = "commentUser">FF7</span>  <span>1000 votes</span>  <span>6hours ago</span></p>
-        <p class = "commentDesc">Ganda Paneleiro!</p>
+    	<div class="comments-container">
+        <ul id="comments-list" class="comments-list">
+          <li>
+            <div class="comment-main-level">
+              <!-- Avatar -->
+              <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+              <div class="comment-box">
+                <div class="comment-head">
+                  <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                  <span>20 minutes ago</span>
+                  <i class="fa fa-reply"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+                <div class="comment-content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                </div>
+              </div>
+            </div>
+            <!-- Comment Answers -->
+            <ul class="comments-list reply-list">
+              <li>
+                <!-- Avatar -->
+                <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
+                <div class="comment-box">
+                  <div class="comment-head">
+                    <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                    <span>10 minutes ago</span>
+                    <i class="fa fa-reply"></i>
+                    <i class="fa fa-heart"></i>
+                  </div>
+                  <div class="comment-content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <!-- Avatar -->
+                <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+                <div class="comment-box">
+                  <div class="comment-head">
+                    <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                    <span>10 minutes ago</span>
+                    <i class="fa fa-reply"></i>
+                    <i class="fa fa-heart"></i>
+                  </div>
+                  <div class="comment-content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="comment-main-level">
+              <!-- Avatar -->
+              <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""></div>
+              <div class="comment-box">
+                <div class="comment-head">
+                  <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                  <span>10 minutes ago</span>
+                  <i class="fa fa-reply"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+                <div class="comment-content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-    </div>
+      </div>
   </body>
 </html>
