@@ -48,11 +48,17 @@ body > header > nav *
     border-right-color: gray;
 }
 
-#channels > ul *
+#channels *
 {
     list-style-type: none;
     text-decoration: none;
     color: white;
+}
+
+#channels > ul > li:nth-child(1)
+{
+    border-bottom-color: orangered;
+    border-bottom-width: 0.2em;
 }
 
 .story

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+body
+{
+    background-color: black;
+}
+
+body *
+{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+body > header
+{
+    border-bottom-style: solid;
+    border-bottom-color: gray;
+    background-color: black;
+}
+
+#title
+{
+    font-size: 50pt;
+    text-decoration: none;
+    color: orangered;
+}
+
+#subtitle
+{
+    font-size: 25pt;
+    text-decoration: none;
+    color: white;
+}
+
+body > header > nav *
+{
+    text-decoration: none;
+    color: white;
+}
+
+#profile
+{
+    font-size: 12pt;
+}
+
+#info
+{
+    color: white;
+}
+
+#profile_image
+{
+    border: 0.2em solid darkslategray;
+    border-radius: 1em;
+}
+
+#username
+{
+    font-size: 40pt;
+    text-align: center;
+    border-bottom: 0.01em solid teal;
+}
+
+#description
+{
+    font-style: italic;
+    text-align: center;
+    color: khaki;
+}
+
+#stats
+{
+    font-size: 20pt;
+}
+
+.stat > *
+{
+    text-align: center;
+}
+
+.stat > p:nth-child(1)
+{
+    font-weight: bold;
+    color: white;
+    border-left: 0.1em solid orangered;
+    border-right: 0.1em solid orangered;
+}
+
+.stat > p:nth-child(2)
+{
+    color: white
+}

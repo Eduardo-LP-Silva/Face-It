@@ -16,6 +16,7 @@
     <link href="front_page_style.css" rel="stylesheet"/>
     <link href="front_page_layout.css" rel="stylesheet"/>
     <script src="../scripts/story_vote.js" defer> </script>
+  </head>
   <body>
 
     <?php include('../templates/navbar.php');?>
@@ -67,6 +68,5 @@
         <?php
       } ?>
     </section>
-  </head>
   </body>
 </html>
