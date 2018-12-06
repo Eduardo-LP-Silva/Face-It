@@ -96,17 +96,22 @@ body > header > nav *
 {
     font-size: 16pt;
     background: none;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-#history_selection > button:first-child
+#history_selection > *:hover
+{
+    color: red;
+}
+
+#history_selection > a:first-child
 {
     border: none;
-    border-right: 0.1em solid white;
-   
-    
+    border-right: 0.1em solid white; 
 }
 
-#history_selection > button:nth-child(2)
+#history_selection > a:nth-child(2)
 {
     border: none;
 }

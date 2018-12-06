@@ -18,8 +18,8 @@
       </div>
     </section>
     <section id="history">
-      <form id="history_selection">
-        <button type="submit"> Posts </button>
-        <button type="submit"> Comments </button>
-      </form>
+      <div id="history_selection">
+        <a href="../profile/profile_posts.php"> Posts </a>
+        <a href="../profile/profile_comments.php"> Comments </a>
+      </div>
       

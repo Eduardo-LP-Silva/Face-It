@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="profile_style.css" rel="stylesheet"/>
     <link href="profile_layout.css" rel="stylesheet"/>
-    <link href="profile_posts_layout.css" rel="stylesheet"/>
-    <link href="profile_posts_style.css" rel="stylesheet"/>
+    <link href="profile_posts/profile_posts_layout.css" rel="stylesheet"/>
+    <link href="profile_posts/profile_posts_style.css" rel="stylesheet"/>
   </head>
   <body>
     <?php 
@@ -26,10 +26,13 @@
       {
     ?>
       <div class="history_item">
-        <p> <?=$user_story['points']?> </p>
         <a href="front_page.html"> <?=$user_story['title']?> </a> <!-- Change href's to post -->
         <a href="front_page.html"> <img src=<?php if($user_story['picture' == null]) echo '../assets/no_image.png'?>
           alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
+        <div class="points">
+          <img src="../assets/like_dislike.png" alt="Points Symbol"/>
+          <p> <?=$user_story['points']?> </p>
+        </div>
         <div class="comment">
           <a href="front_page.html"> <img src="../assets/comment.png" alt="Comment Symbol"/> </a> <!-- Change href's to post -->
           <p> <?=$user_story['comment_number']?> </p>

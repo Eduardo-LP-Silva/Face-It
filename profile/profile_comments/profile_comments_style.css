@@ -1,0 +1,25 @@
+.history_item
+{
+    /*
+    background: rgb(73,73,73);
+    background: linear-gradient(227deg, rgba(73,73,73,1) 66%, rgba(253,45,45,1) 94%); */
+
+    border: 0.3em solid rgb(189, 186, 186);
+    border-radius: 0.5em;
+}
+
+.history_item > p:first-child
+{
+    border-right: 0.2em solid rgb(189, 186, 186);
+}
+
+.points > p
+{
+    text-align: center;
+    font-size: 14pt;
+}
+
+.story > a
+{
+    text-decoration: none;
+}

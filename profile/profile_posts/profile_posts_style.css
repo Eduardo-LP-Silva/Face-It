@@ -1,0 +1,39 @@
+/* Comment Number */
+.comment > p
+{
+    text-align: center;
+} 
+
+.channel > a
+{
+    text-align: center;
+}
+
+.points > p
+{
+    text-align: center;
+}
+
+/* Script com random ang ? */
+.history_item
+{
+    /*
+    background: rgb(73,73,73);
+    background: linear-gradient(227deg, rgba(73,73,73,1) 66%, rgba(253,45,45,1) 94%); */
+
+    border: 0.3em solid rgb(189, 186, 186);
+    border-radius: 0.5em;
+}
+
+.history_item *
+{
+    font-size: 18pt;
+    text-decoration: none;
+}
+
+.history_item > p:first-child
+{
+    border-right: 0.15em solid gray;
+    padding-right: 4em;
+    padding-left: 2em;
+}

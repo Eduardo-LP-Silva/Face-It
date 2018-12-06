@@ -58,6 +58,7 @@ body > header > nav
     grid-template-rows: [start] 5em [description] 10em [end];
     border-radius: 0.5em;
     padding-bottom: 1em;
+    min-width: 20em;
 }
 
 #profile_image
@@ -106,19 +107,21 @@ body > header > nav
 {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 0.7em;
     margin-bottom: 3em;
 }
 
-#history_selection > button:first-child
+#history_selection > a:first-child
 {
     padding-right: 1em;
-    height: 2em;
+    height: 1.5em;
 }
 
-#history_selection > button:nth-child(2)
+#history_selection > a:nth-child(2)
 {
     padding-left: 1em;
+    height: 1.5em;
 }
 
 
