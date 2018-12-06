@@ -56,6 +56,8 @@ body > header > nav
     display: grid;
     grid-template-columns: [start] 15em [description] 1fr [end];
     grid-template-rows: [start] 5em [description] 10em [end];
+    border-radius: 0.5em;
+    padding-bottom: 1em;
 }
 
 #profile_image
@@ -89,7 +91,7 @@ body > header > nav
     grid-column-start: start;
     grid-column-end: end;
     grid-row: stats;
-    margin-top: 3em;
+    margin-top: 2.5em;
     display: flex;
     justify-content: space-evenly;
 }
@@ -98,6 +100,25 @@ body > header > nav
 {
     padding-left: 0.7em;
     padding-right: 0.7em;
+}
+
+#history_selection
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 0.7em;
+    margin-bottom: 3em;
+}
+
+#history_selection > button:first-child
+{
+    padding-right: 1em;
+    height: 2em;
+}
+
+#history_selection > button:nth-child(2)
+{
+    padding-left: 1em;
 }
 
 

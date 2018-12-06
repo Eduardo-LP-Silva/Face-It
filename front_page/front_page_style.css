@@ -92,9 +92,3 @@ body > header > nav *
     font-size: 18pt;
     border-right: 2px solid gray;
 }
-
-/* ID */
-.story > span:nth-child(12)
-{
-    display: none;
-}

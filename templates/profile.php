@@ -1,15 +1,3 @@
-<!-- Replace info with respective user's -->
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title>FaceIt</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="profile_style.css" rel="stylesheet"/>
-    <link href="profile_layout.css" rel="stylesheet"/>
-  </head>
-  <body>
-    <?php include('../templates/navbar.php'); ?>
     <section id="info">
       <h1 id="username"> 3duardo_S </h1>
       <img id="profile_image" src="../assets/profile_pic.png"/>
@@ -30,9 +18,8 @@
       </div>
     </section>
     <section id="history">
-      <div class="history_item">
-        
-      </div>
-    </section>
-  </body>
-</html>
+      <form id="history_selection">
+        <button type="submit"> Posts </button>
+        <button type="submit"> Comments </button>
+      </form>
+      

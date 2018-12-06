@@ -63,7 +63,6 @@
           <a href="front_page.html"> <?=$story['username']?> </a> <!-- Change href's to OP's profile -->
           <img src="../assets/channel.png" alt="Channel Icon"/>
           <a href="front_page.html"> <?=$story['channel_name']?> </a> <!-- Change href's to channel -->
-          <span> <?=$story['ID']?> </span>
         </div>
         <?php
       } ?>

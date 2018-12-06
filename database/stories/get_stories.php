@@ -17,4 +17,27 @@
 
         return $front_page_stories;
     }
+
+    function get_user_stories()
+    {
+        global $db;
+
+        //Mudar para user
+        $stmt = $db->prepare
+        (
+            "SELECT story.story as ID, story.title as title, story.picture as picture, story.points as points, 
+                story.comment_number as comment_number, channel.channel_name as channel_name  
+            FROM story, client, channel
+            WHERE client.username = story.client 
+            AND story.channel = channel.channel_name 
+            AND client.username = 'Des_locado'
+            ORDER BY story.post_date DESC"
+        );
+
+        $stmt->execute();
+
+        $user_stories = $stmt->fetchAll();
+
+        return $user_stories;
+    }
 ?>
