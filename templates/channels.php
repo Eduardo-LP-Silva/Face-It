@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../templates/templates.css">
+<!-- <link rel="stylesheet" href="../templates/templates.css"> -->
 <div id="channels"> <!-- Get with php from DB, change href's accordingly -->
   
   <ul>

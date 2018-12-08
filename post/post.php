@@ -1,23 +1,48 @@
+<?php
+  include_once('../database/connection.php');
+  include_once('../database/comments/get_comments.php');
+  include_once('../database/stories/get_stories.php');
+  include('../database/votes/get_personal_story_votes.php');
+  include('../utils/utils.php');
+  
+  $comments = get_user_comments();
+  $stories = get_user_stories();
+  foreach($comments as $comment) {
+    // echo $comment['ID'], '<br>';
+    // echo $comment['content'], '<br>';
+    // echo $comment['points'], '<br>';
+    // echo $comment['story'], '<br>';
+    // echo $comment['story_title'], '<br>';
+  }
+
+  foreach($stories as $story) {
+    // echo $story['client'], '<br>';
+    // echo $story['ID'], '<br>';
+    // echo $story['title'], '<br>';
+    // echo $story['points'], '<br>';
+    // echo $story['comment_number'], '<br>';
+    // echo $story['channel_name'], '<br>';
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Post</title>
     <link rel="stylesheet" href="post.css">
+    <!-- <link rel="stylesheet" href="../templates/templates.css"> -->
   </head>
   <body>
     <?php include('../templates/navbar.php');?>
     <?php include('../templates/channels.php');?>
 
     <div id = "content">
-      <h1>Homossexualidade ainda é motivo de preconceito?</h1>
+      <h1><?php echo $story['title'];?> </h1>
       <img src="../assets/deslocado.jpg">
-      <p id = "description"> <span style="display:inline-block; width: 2em;"></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+      <p id = "description"> <span style="display:inline-block; width: 2em;"></span> <?php echo $story['conteudo'], '<br>'; ?>
       </p>
-      <p id = "postData"> 3duardo S posted this on 03/12/2018</p>
+      <p id = "postData"> <span><?php echo $story['client'];?> </span> posted this on 03/12/2018</p>
     </div>
 
     <div id="commentInput">

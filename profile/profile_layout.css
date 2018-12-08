@@ -7,7 +7,6 @@ body > header
     width: 100%;
     top: 0;
     overflow: hidden;
-    z-index: 2;
 }
 
 #subtitle
@@ -86,14 +85,6 @@ body > header > nav
     grid-row: description;
     margin-left: 1em;
     margin-top: 1.5em;
-}
-
-#edit
-{
-    position: absolute;
-    right: 1.5em;
-    top: 12.5em;
-    padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
 #stats
