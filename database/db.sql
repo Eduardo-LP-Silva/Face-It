@@ -18,6 +18,7 @@ CREATE TABLE client
 (
     username TEXT PRIMARY KEY,
     pw TEXT NOT NULL,
+    email TEXT NOT NULL,
     karma INTEGER NOT NULL
 );
 
@@ -146,9 +147,9 @@ END;
 
 -- Insert
 
-INSERT INTO client(username, pw, karma) VALUES ('3duardo_S', 1234, 500);
-INSERT INTO client(username, pw, karma) VALUES ('Des_locado', 4321, 100);
-INSERT INTO client(username, pw, karma) VALUES ('FF7', 5678, 212);
+INSERT INTO client(username, pw, email, karma) VALUES ('3duardo_S', 1234, '123@feup.pt',500);
+INSERT INTO client(username, pw, email, karma) VALUES ('Des_locado', 4321, '165@feup.pt',100);
+INSERT INTO client(username, pw, email, karma) VALUES ('FF7', 5678, '199@feup.pt',212);
 INSERT INTO user_profile(client, personal_description, picture) VALUES ('3duardo_S', 'O Marinheiro', NULL);
 INSERT INTO channel(channel_name, channel_description) VALUES ('WatchPeopleDie', 'A place for morbid curiosity');
 INSERT INTO client_channel(client, channel) VALUES ('Des_locado', 'WatchPeopleDie');
