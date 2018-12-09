@@ -14,10 +14,13 @@
     <link href="profile_layout.css" rel="stylesheet"/>
     <link href="profile_comments/profile_comments_layout.css" rel="stylesheet"/>
     <link href="profile_comments/profile_comments_style.css" rel="stylesheet"/>
+    <link href="../templates/navbar/navbar_layout.css" rel="stylesheet"/>
+    <link href="../templates/navbar/navbar_style.css" rel="stylesheet"/>
   </head>
   <body>
-    <?php 
-      include('../templates/navbar.php'); 
+    <?php
+      $_GET['banner'] = 'The Face of the Internet'; 
+      include('../templates/navbar/navbar.php'); 
       include("../templates/profile.php");
 
       $user_comments = get_user_comments();

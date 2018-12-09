@@ -1,0 +1,23 @@
+#channels
+{
+    position: fixed;
+    top: 5.4em;
+    left: 1em;
+    width: 9em;
+    overflow-x: hidden;
+}
+
+#channels > ul
+{
+    height: 50em;
+    overflow-y: auto;
+    direction: rtl;
+}
+
+#channels > ul > li
+{
+    direction: ltr;
+    text-align: center;
+    border-bottom: 0.1em solid grey;
+    margin-bottom: 0.5em;
+}

@@ -1,0 +1,23 @@
+#channels
+{
+    border-right-style: solid;
+    border-right-color: gray;
+}
+
+#channels *
+{
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
+
+#channels > ul *:hover
+{
+    color: red;
+    border-bottom: 0.1em solid orangered;
+}
+
+#channels > ul > li:nth-child(1)
+{
+    border-bottom: 0.2em solid orangered;
+}

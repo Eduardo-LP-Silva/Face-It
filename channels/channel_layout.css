@@ -1,0 +1,12 @@
+#channel_info
+{
+    position: fixed;
+    right: 0;
+    width: 17em;
+    height: 30em;
+}
+
+#channel_name
+{
+    padding-bottom: 0.5em;
+}

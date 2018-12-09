@@ -1,0 +1,51 @@
+body > header
+{
+    display:grid;
+    grid-template-columns: [start] 12em [subtitle] 20em [nav] 1fr [end];
+    grid-template-rows: 1fr;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+}
+
+#subtitle
+{
+    padding-top: 1em;
+}
+
+#title
+{
+    grid-column: start;
+    grid-row: 1;
+    padding-left: 0.5%;
+}
+
+body > header > nav
+{
+    grid-column: nav;
+    grid-row: 1;
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    padding-right: 2em;
+    align-items: center;
+}
+
+#profile_pic > img
+{
+    border-radius: 50%;
+    width: 4.5em;
+}
+
+#profile
+{
+    padding-left: 1em;
+    padding-right: 1em;
+    border-right: 0.05em solid white;
+}
+
+#signout
+{
+    padding-left: 1.2em
+}

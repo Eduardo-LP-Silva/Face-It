@@ -1,6 +1,6 @@
 <?php
 
-    if(!empty($_GET))
+    if($_GET['client'] && $_GET['story'])
     {
         $db = new PDO('sqlite:../db.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

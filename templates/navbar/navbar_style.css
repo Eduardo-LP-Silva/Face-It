@@ -1,0 +1,31 @@
+body > header
+{
+    border-bottom-style: solid;
+    border-bottom-color: gray;
+    background-color: black;
+}
+
+#title
+{
+    font-size: 50pt;
+    text-decoration: none;
+    color: orangered;
+}
+
+#subtitle
+{
+    font-size: 25pt;
+    text-decoration: none;
+    color: white;
+}
+
+body > header > nav *
+{
+    text-decoration: none;
+    color: white;
+}
+
+#profile
+{
+    font-size: 12pt;
+}

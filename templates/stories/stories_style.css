@@ -1,0 +1,36 @@
+.story
+{
+    border: 2px solid gray;
+    transition: background-color 0.2s;
+}
+.story:hover
+{
+    background-color: rgb(27, 27, 27);
+}
+
+.story > *
+{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+/* Upvote Button */
+.story > form:nth-child(1) > button
+{
+    background-image: url("../assets/like.png");
+}
+
+/* Number of Points */
+.story > p:nth-child(2)
+{
+    font-size: 16pt;
+    border-right: 2px solid gray;
+}
+
+/* Title */
+.story > a:nth-child(4)
+{
+    font-size: 18pt;
+    border-right: 2px solid gray;
+}
