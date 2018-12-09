@@ -6,9 +6,7 @@
   include('../utils/utils.php');
 
 
-  if(!isset($_SESSION['username'])){
-    header("Location: ../login/login.php");
-  }
+  
 
   $stories = getFrontPageStories();
 ?>
@@ -33,7 +31,7 @@
       { ?>
         <div class="story" id=<?=$story['ID']?>>
 
-          <?php $points = get_personal_story_votes($story['ID'], '3duardo_S'); //Mudar para user
+          <?php $points = get_personal_story_votes($story['ID'], 'Des_locado'); //Mudar para user
            
             if(!empty($points))
             {

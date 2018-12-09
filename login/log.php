@@ -16,7 +16,7 @@
 		else {
 			if(checkClientComb($username, $password)){
 				$_SESSION['username'] = $username;
-				header("Location: ../front_page/front_page.php");
+				header("Location: ../profile/profile_posts.php");
 				
 			}
 			else {

@@ -1,3 +1,5 @@
+
+
 <header>
   <a id="title" href="../front_page/front_page.php">FaceIt</a>
   <a id="subtitle" href="../front_page/front_page.php"> The face of the Internet </a>
@@ -6,6 +8,6 @@
         <img src="../assets/profile_pic.png" alt="Profile Picture">
       </a>
       <a id="profile" href="front_page.html"> 3duardo S </a>
-      <a id="signout" href="../login/login.html"> Sign out </a>
+      <a id="signout" href="../login/logout.php"> Sign out </a>
   </nav>
 </header>
