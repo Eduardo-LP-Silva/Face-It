@@ -1,6 +1,14 @@
 <?php 
+
+  include_once('../login/session.php');
   include_once('../database/connection.php'); 
   include_once("../database/stories/get_stories.php"); 
+
+  if(!isset($_SESSION['username'])){
+    die(header("Location: ../login/login.php?error=nosession"));
+  }
+
+
 ?>
 
 <!-- Replace info with respective user's -->
