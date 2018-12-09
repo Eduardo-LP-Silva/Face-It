@@ -1,7 +1,8 @@
-    <section id="info">
+<section id="info">
       <h1 id="username"> 3duardo_S </h1>
       <img id="profile_image" src="../assets/profile_pic.png"/>
       <h2 id="description"> A.k.a Marinheiro Ok Ok 4Real das Streetz </h2>
+      <a id="edit" href="../front_page/front_page.php"> Edit </a>
     </section>
     <section id="stats">
       <div class="stat">
