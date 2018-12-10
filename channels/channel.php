@@ -5,7 +5,12 @@
   include_once('../database/votes/get_personal_story_votes.php');
   include_once('../utils/utils.php');
 
+
+
   $channel_info = get_channel_info($_GET['channel']);
+  if(empty($channel_info[0])){
+    die(header('Location: ../front_page/front_page.php'));
+  }
   $stories = get_channel_stories($_GET['channel']);
 ?>
 
