@@ -1,5 +1,7 @@
 <?php
 
+    include_once('../login/session.php');
+
     function get_user_comments()
     {
         global $db;
@@ -11,12 +13,12 @@
                 story.title as story_title
             FROM comment, client, story
             WHERE client.username = comment.client 
-            AND client.username = '3duardo_S'
+            AND client.username = ?
             AND comment.story = story.story
             ORDER BY comment.comment_date DESC"
         );
 
-        $stmt->execute();
+        $stmt->execute(array($_SESSION['username']));
 
         $user_comments = $stmt->fetchAll();
 

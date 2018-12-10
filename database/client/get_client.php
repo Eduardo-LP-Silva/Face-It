@@ -1,7 +1,7 @@
 <?php
 	
 	//include_once('../connection.php');
-
+	include_once('../login/session.php');
 
 	// Verifies if username already exists in the database
 	function checkUsername($username){
@@ -36,6 +36,41 @@
     	$user = $stmt->fetch();
 
     	return $user !== false && password_verify($pw, $user['pw']);
+	}
+
+	function get_client_posts_cnt(){
+
+		$db = new PDO('sqlite:../database/db.db');
+    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    	$stmt = $db->prepare('SELECT COUNT(*) as story_nr FROM story, client WHERE story.client=client.username AND client.username=?');
+    	$stmt->execute(array($_SESSION['username']));
+
+    	return $stmt->fetch();
+	}
+
+	
+	function get_client_field($field){
+
+		$db = new PDO('sqlite:../database/db.db');
+    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    	$stmt = $db->prepare('SELECT '.$field.' FROM client where client.username=?');
+    	$stmt->execute(array($_SESSION['username']));
+
+    	return $stmt->fetch();
+	}
+
+	function get_client_comments_cnt(){
+
+		$db = new PDO('sqlite:../database/db.db');
+    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    	$stmt = $db->prepare('SELECT COUNT(*) as comment_nr FROM comment, client WHERE comment.client=client.username AND client.username=?');
+    	$stmt->execute(array($_SESSION['username']));
+
+    	return $stmt->fetch();
+
 	}
 
 

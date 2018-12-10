@@ -5,6 +5,10 @@
   include_once('../database/votes/get_personal_story_votes.php');
   include_once('../utils/utils.php');
 
+  if(!isset($_SESSION['username'])){
+    die(header("Location: ../login/login.php?error=nosession"));
+  }
+
   $stories = get_front_page_stories();
 ?>
 

@@ -150,16 +150,18 @@ END;
 INSERT INTO client(username, pw, email, karma) VALUES ('3duardo_S', 1234, '123@feup.pt',500);
 INSERT INTO client(username, pw, email, karma) VALUES ('Des_locado', 4321, '165@feup.pt',100);
 INSERT INTO client(username, pw, email, karma) VALUES ('FF7', 5678, '199@feup.pt',212);
+INSERT INTO client(username, pw, email, karma) VALUES ('edu', '$2y$12$7w2lRpjB5JBiN.nukd8TueDZoC/tekNtGsaHGVyQ.Gj5ka9RFllKS', 'joao-carlos.alves@hotmail.com', 30);
+INSERT INTO client(username, pw, email, karma) VALUES ('joao', '$2y$12$Tz2igae3zaGPp2MZE/f2VuvR.sp1M8c8tAguPwPVsyZ2.xxTRNCIW', 'joao-carlos.alves@hotmail.com', 10);
 INSERT INTO user_profile(client, personal_description, picture) VALUES ('3duardo_S', 'O Marinheiro', NULL);
 INSERT INTO channel(channel_name, channel_description) VALUES ('WatchPeopleDie', 'A place for morbid curiosity');
 INSERT INTO client_channel(client, channel) VALUES ('Des_locado', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (1, 'Des_locado', 'Hello World', NULL, NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
+    (1, 'edu', 'Hello World', NULL, NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (2, 'FF7', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
+    (2, 'joao', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (1, '3duardo_S', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00.0000', 2);
+    (1, 'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00.0000', 2);
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (2, 'FF7', NULL, 1, 'True', '2018-12-02 14:31:00.0000', 1);
+    (2, 'joao', 1, 1, 'True', '2018-12-02 14:31:00.0000', 1);
 INSERT INTO likes_story(client, story, points) VALUES ('Des_locado', 1, 1);
 INSERT INTO likes_comment(client, comment, points) VALUES ('3duardo_S', 1, 1);

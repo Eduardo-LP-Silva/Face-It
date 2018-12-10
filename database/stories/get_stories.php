@@ -1,4 +1,7 @@
 <?php
+    
+    include_once('../login/session.php');
+
 
     function get_front_page_stories()
     {
@@ -30,11 +33,11 @@
             FROM story, client, channel
             WHERE client.username = story.client 
             AND story.channel = channel.channel_name 
-            AND client.username = 'Des_locado'
+            AND client.username = ?
             ORDER BY story.post_date DESC"
         );
 
-        $stmt->execute();
+        $stmt->execute(array($_SESSION['username']));
 
         $user_stories = $stmt->fetchAll();
 
