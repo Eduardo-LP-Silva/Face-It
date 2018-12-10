@@ -10,16 +10,16 @@ body *
     font-family: 'Fjalla One', sans-serif;
 }
 
-#channel_info *
+.channel_info *, .channel_info_shrunk *
 {
     color: white;
 }
 
-#channel_info
+.channel_info, .channel_info_shrunk
 {
     background: rgb(43, 42, 42);
-    border-radius: 0.2em;
-    border: 0.3em solid gray;
+    box-shadow: -0.2em 0 0.6em red;
+    transition: all 0.5s;
 }
 
 #channel_name
@@ -32,7 +32,14 @@ body *
 
 #channel_description
 {
-    border-bottom: 0.2em solid gray;
+    border-bottom: 0.2em solid red;
+}
+
+#expand_bar
+{
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(43,42,42,1) 85%); 
+    text-align: center;
 }
 
 #subscribe > p:nth-child(2)

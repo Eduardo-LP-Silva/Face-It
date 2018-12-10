@@ -1,40 +1,74 @@
-#channel_info
+.channel_info
 {
     position: fixed;
     right: 0;
     width: auto;
-    min-width: 17%;
+    max-width: 17em;
     height: auto;
     min-height: 10em;
     max-height: 30em;
     top: 6em;
     bottom: 2em;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
+    overflow-x: hidden;
     overflow-y: auto;
+}
+
+.channel_info_shrunk
+{
+    position: fixed;
+    right: 0;
+    width: auto;
+    max-width: 2em;
+    height: auto;
+    min-height: 10em;
+    max-height: 30em;
+    top: 6em;
+    bottom: 2em;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    overflow: hidden;
+}
+
+#expand_bar
+{
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    width: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 2.3em;
+    padding-left: 0.5em;
+    height: 100%;
 }
 
 #channel_name
 {
     padding-bottom: 0.5em;
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 1;
 }
 
 #channel_description
 {
     padding-left: 1em;
-    height: 21em;
-    overflow: hidden;
-    grid-column: 1;
+    padding-right: 1em;
+    height: 20em;
+    overflow-y: auto;
+    grid-column: 2;
     grid-row: 2;
     margin: 0;
 }
 
 #subscribe
 {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 3;
     display: flex;
     justify-content: space-around;
@@ -51,4 +85,9 @@
 {
     height: 1.5em;
     padding-bottom: 0.1em;
+}
+
+#new_post
+{
+    padding-right: 0.5em;
 }

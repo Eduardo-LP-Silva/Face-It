@@ -29,15 +29,17 @@
     <link href="../templates/stories/stories_layout.css" rel="stylesheet"/>
     <link href="../templates/stories/stories_style.css" rel="stylesheet"/>
     <script src="../scripts/story_vote.js" defer> </script>
+    <script src="../scripts/expand_bar.js" defer> </script>
   </head>
   <body>
     <?php $_GET['banner'] = $_GET['channel'];?>
     <?php include('../templates/navbar/navbar.php');?>
     <?php $_POST['channel_path'] = "./channel.php"; ?>
     <?php include('../templates/channels/channels.php');?>
-    <section id="channel_info">
+    <section class="channel_info">
       <p id="channel_name"> <?=$_GET['channel'];?> </p>
       <p id="channel_description"> <?=$channel_info['channel_description'];?> </p>
+      <p id="expand_bar"> >> </p>
       <div id="subscribe"> 
         <img src="../assets/subscribe.svg"/>
         <p> Subscribe </p>
