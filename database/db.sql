@@ -26,7 +26,7 @@ CREATE TABLE user_profile
 (   
     client TEXT REFERENCES client PRIMARY KEY,
     personal_description TEXT,
-    picture IMAGE -- Might have to replace with text containing path
+    picture TEXT -- Might have to replace with text containing path
 );
 
 CREATE TABLE channel
@@ -153,6 +153,9 @@ INSERT INTO client(username, pw, email, karma) VALUES ('FF7', 5678, '199@feup.pt
 INSERT INTO client(username, pw, email, karma) VALUES ('edu', '$2y$12$7w2lRpjB5JBiN.nukd8TueDZoC/tekNtGsaHGVyQ.Gj5ka9RFllKS', 'joao-carlos.alves@hotmail.com', 30);
 INSERT INTO client(username, pw, email, karma) VALUES ('joao', '$2y$12$Tz2igae3zaGPp2MZE/f2VuvR.sp1M8c8tAguPwPVsyZ2.xxTRNCIW', 'joao-carlos.alves@hotmail.com', 10);
 INSERT INTO user_profile(client, personal_description, picture) VALUES ('3duardo_S', 'O Marinheiro', NULL);
+INSERT INTO user_profile(client, personal_description, picture) VALUES ('3duardo_S', 'O Marinheiro', 'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/28379613_1425786984197475_7671652175703607841_n.jpg?_nc_cat=103&_nc_ht=scontent.flis7-1.fna&oh=bebf7289651fd1f8a4b077f378b1a47d&oe=5CA6507D');
+INSERT INTO user_profile(client, personal_description, picture) VALUES ('Des_locado', 'O Marinheiro', 'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/24993344_1632481790124350_4765604731530085149_n.jpg?_nc_cat=100&_nc_ht=scontent.flis7-1.fna&oh=ee96951c81ee47104586f7da14b5f7d8&oe=5CAF13C9');
+INSERT INTO user_profile(client, personal_description, picture) VALUES ('FF7', 'O Marinheiro', 'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/47252887_2485383431488395_7276177372590637056_n.jpg?_nc_cat=106&_nc_ht=scontent.flis7-1.fna&oh=230ee2703db93c913eca2b893da2f219&oe=5C9E9060');
 INSERT INTO channel(channel_name, channel_description) VALUES ('WatchPeopleDie', 'A place for morbid curiosity');
 INSERT INTO client_channel(client, channel) VALUES ('Des_locado', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 

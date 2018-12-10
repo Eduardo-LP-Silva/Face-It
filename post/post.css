@@ -173,6 +173,29 @@ img{
   color:white;
 }
 
+a{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+#clientName{
+  color:white;
+  margin-right: 0;
+  /* text-decoration: underline; */
+
+}
+
 #commentInput{
   margin-left: 11em;
   color: white;
@@ -197,6 +220,7 @@ input{
   margin-left: 11em;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 3%;
 }
 
 .commentUser{
@@ -236,7 +260,7 @@ ul {
 
 
 /** ====================
-* Lista de Comentarios
+* Comments List
 =======================*/
 .comments-container {
   margin: 0;
@@ -271,14 +295,14 @@ ul {
 }
 
 /**
-* Lineas / Detalles
+* Details
 -----------------------*/
 .comments-list:before {
-  margin: 0;
-  padding: 0;
+ margin: 0;
+ padding: 0;
  content: '';
  width: 2px;
- height: 100%;
+ height: 107%;
  background: #c7cacb;
  position: absolute;
  left: 32px;
@@ -286,12 +310,12 @@ ul {
 }
 
 .comments-list:after {
-  margin: 0;
-  padding: 0;
+ margin: 0;
+ padding: 0;
  content: '';
  position: absolute;
  background: #c7cacb;
- bottom: 0;
+ bottom: -7%;
  left: 27px;
  width: 7px;
  height: 7px;
@@ -385,7 +409,7 @@ ul {
  clear: both;
 }
 /**
-* Caja del Comentario
+* Comment Box
 ---------------------------*/
 .comments-list .comment-box {
   margin: 0;
@@ -496,21 +520,6 @@ ul {
  border-radius: 0 0 4px 4px;
 }
 
-.comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #03658c;}
-.comment-box .comment-name.by-author:after {
-  margin: 0;
-  padding: 0;
- content: 'admin';
- background: #03658c;
- color: #FFF;
- font-size: 12px;
- padding: 3px 5px;
- font-weight: 700;
- margin-left: 10px;
- -webkit-border-radius: 3px;
- -moz-border-radius: 3px;
- border-radius: 3px;
-}
 
 /** =====================
 * Responsive

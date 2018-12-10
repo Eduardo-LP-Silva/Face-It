@@ -28,7 +28,7 @@
         //Mudar para user
         $stmt = $db->prepare
         (
-            "SELECT story.story as ID, story.title as title, story.picture as picture, story.points as points, 
+            "SELECT story.story as ID, story.picture as picture, story.title as title, story.content as content, story.client as client, story.picture as picture, story.points as points, 
                 story.comment_number as comment_number, channel.channel_name as channel_name  
             FROM story, client, channel
             WHERE client.username = story.client 
