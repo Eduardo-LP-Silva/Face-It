@@ -33,6 +33,12 @@
     <section id="channel_info">
       <p id="channel_name"> <?=$_GET['channel'];?> </p>
       <p id="channel_description"> <?=$channel_info['channel_description'];?> </p>
+      <div id="subscribe"> 
+        <img src="../assets/subscribe.svg"/>
+        <p> Subscribe </p>
+        <p> </p> <!-- Div -->
+        <a id="new_post" href="create_post.php"> New Post </a> 
+      </div>
     </section>
     <?php include_once('../templates/stories/stories.php') ?>
   </body>

@@ -19,6 +19,7 @@ body *
 {
     background: rgb(43, 42, 42);
     border-radius: 0.2em;
+    border: 0.3em solid gray;
 }
 
 #channel_name
@@ -26,5 +27,27 @@ body *
     text-align: center;
     font-size: 18pt;
     border-bottom: 0.2em solid rgb(247, 8, 8);
-    color: rgb(175, 168, 168);
+    color: white;
+}
+
+#channel_description
+{
+    border-bottom: 0.2em solid gray;
+}
+
+#subscribe > p:nth-child(2)
+{
+    font-size: 14pt;
+}
+
+#subscribe > p:nth-child(3)
+{
+    border: 0.12em solid gray;
+}
+
+#new_post
+{
+    font-size: 14pt;
+    color: white;
+    text-decoration: none;
 }
