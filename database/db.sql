@@ -57,7 +57,7 @@ CREATE TABLE story
 
 CREATE TABLE comment
 (
-    comment INTEGER PRIMARY KEY,
+    comment INTEGER PRIMARY KEY AUTOINCREMENT,
     client TEXT REFERENCES client,
     story INTEGER REFERENCES story,
     parent_comment INTEGER REFERENCES comment,
@@ -162,8 +162,10 @@ INSERT INTO story(story, client, title, content, picture, points, comment_number
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
     (2, 'joao', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (1, 'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00.0000', 2);
+    (NULL,'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00.0000', 2);
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (2, 'joao', 1, 1, 'True', '2018-12-02 14:31:00.0000', 1);
+    (NULL,'joao', 1, 1, 'True', '2018-12-02 14:31:00.0000', 1);
+INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
+    (NULL,'joao', 1, NULL, 'Teste', '2018-12-02 14:31:00.0000', 1);
 INSERT INTO likes_story(client, story, points) VALUES ('joao', 1, 1);
 INSERT INTO likes_comment(client, comment, points) VALUES ('edu', 1, 1);

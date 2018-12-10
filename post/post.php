@@ -5,11 +5,11 @@
   include('../database/votes/get_personal_story_votes.php');
   include('../utils/utils.php');
   
-  $comments = get_story_comments();
-  $commentReplies = get_comment_comments();
   $stories = get_user_stories();
 
   foreach($stories as $story) {
+    $comments = get_story_comments($story['ID']);
+    $nComments = get_comments_by_story($story['ID']);
   }
 ?>
 
@@ -34,8 +34,10 @@
     </div>
 
     <div id="commentInput">
-      <form action="/my-handling-form-page" method="post"> 
-          <p id = "commentsNumber"><?php echo sizeof($comments)?> Comments</p>
+      <form action="addComment.php" method="post"> 
+          <p id = "commentsNumber"><?php echo sizeof($nComments)?> Comments</p>
+          <input type='hidden' value=<?php echo $story['client'];?> name='client'/> 
+          <input type='hidden' value=<?php echo $story['ID'];?> name='story'/> 
           <input type="text" id="name" name="user_name" placeholder="       Add a comment"/>
       </form>
     </div>
@@ -45,6 +47,7 @@
         <ul id="comments-list" class="comments-list">
         <?php
         foreach($comments as $comment){
+          $commentReplies = get_comment_comments($story['ID'], $comment['ID']);
         ?>
           <li>
             <div class="comment-main-level">
