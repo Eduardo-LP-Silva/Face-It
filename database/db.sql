@@ -160,12 +160,12 @@ INSERT INTO client_channel(client, channel) VALUES ('joao', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
     (1, 'edu', 'Hello World', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', 'https://i0.wp.com/blog.yen.io/wp-content/uploads/2017/11/hello-world.png?fit=2000%2C1062&ssl=1', 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (2, 'joao', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
+    (2, 'joao', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00', 'WatchPeopleDie');
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (NULL,'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00.0000', 2);
+    (NULL,'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00', 2);
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (NULL,'joao', 1, 1, 'True', '2018-12-02 14:31:00.0000', 1);
+    (NULL,'joao', 1, 1, 'True', '2018-12-02 14:31:00', 1);
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (NULL,'joao', 1, NULL, 'Teste', '2018-12-02 14:31:00.0000', 1);
+    (NULL,'joao', 1, NULL, 'Teste', '2018-12-02 14:31:00', 1);
 INSERT INTO likes_story(client, story, points) VALUES ('joao', 1, 1);
 INSERT INTO likes_comment(client, comment, points) VALUES ('edu', 1, 1);

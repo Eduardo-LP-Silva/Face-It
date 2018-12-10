@@ -34,7 +34,7 @@
         $stmt = $db->prepare
         (
             "SELECT DISTINCT comment.comment as ID, client.username as username, user_profile.picture as picture, comment.content as content, comment.points as points, comment.story as story,
-                story.title as story_title
+                story.title as story_title, comment.comment_date as comment_date
             FROM comment, client, story, user_profile
             WHERE story.story = $id
             AND client.username = user_profile.client
@@ -58,7 +58,7 @@
         $stmt = $db->prepare
         (
             "SELECT DISTINCT comment.comment as ID, client.username as username, user_profile.picture as picture, comment.content as content, comment.points as points, comment.story as story,
-                story.title as story_title
+                story.title as story_title, comment.comment_date as comment_date
             FROM comment, client, story, user_profile
             WHERE story.story = $storyId
             AND client.username = user_profile.client

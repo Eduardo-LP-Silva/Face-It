@@ -56,7 +56,9 @@
               <div class="comment-box">
                 <div class="comment-head">
                   <h6 class="comment-name by-author"><a href="../profile/profile_posts.php"><?php echo $comment['username'];?> </a></h6>
-                  <span>20 minutes ago</span>
+                  <?php
+                    echo '<span>'.$comment['comment_date'].' </span>';
+                  ?>
                   <i class="fa fa-reply"></i>
                   <i class="fa fa-heart"></i>
                 </div>

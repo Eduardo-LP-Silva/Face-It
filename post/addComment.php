@@ -7,9 +7,11 @@ $client = $_POST["client"];
 $story = $_POST["story"];
 $content = $_POST["user_name"];
 
+$date = gmdate("Y-m-d H:i:s");
+
 $stmt = $db->prepare("INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) 
-                    VALUES (NULL, ?, ?, NULL, ?, '2018-12-02 14:31:00.0000', 0)");
-$stmt->execute(array($client, $story, $content));
+                    VALUES (NULL, ?, ?, NULL, ?, ?, 0)");
+$stmt->execute(array($client, $story, $content, $date));
 
 header("Location: post.php?success=addcomment");
 exit();
