@@ -11,7 +11,7 @@
             <img src=<?php echo $like_path ?> alt="Like Button"/>
             <p> <?=$story['points']?> </p>
             <img src=<?php echo $dislike_path ?> alt="Dislike Button" />
-            <a href="front_page.html"> <?=$story['title']?> </a> <!-- Change href's to post -->
+            <a href="../post/post.php"> <?=$story['title']?> </a> <!-- Change href's to post -->
             <a href="front_page.html"> <img src=<?php if($story['picture' == null]) echo '../assets/no_image.png'?>
                 alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
             <a href="front_page.html"> <img src="../assets/comment.png" alt="Comment Symbol"/> </a> <!-- Change href's to post -->

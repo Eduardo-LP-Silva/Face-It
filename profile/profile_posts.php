@@ -37,7 +37,7 @@
       {
     ?>
       <div class="history_item">
-        <a href="front_page.html"> <?=$user_story['title']?> </a> <!-- Change href's to post -->
+        <a href="../post/post.php"> <?=$user_story['title']?> </a> <!-- Change href's to post -->
         <a href="front_page.html"> <img src=<?php if($user_story['picture' == null]) echo '../assets/no_image.png'?>
           alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
         <div class="points">
