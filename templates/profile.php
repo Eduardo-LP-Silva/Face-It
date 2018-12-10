@@ -16,7 +16,7 @@
         <p> Karma </p>
         <?php
           $karma = get_client_field('karma');
-          echo '<p> '.$karma[0].' </p>'
+          echo '<p> '.$karma['field'] . ' </p>'
         ?>
       </div>
       <div class="stat">
