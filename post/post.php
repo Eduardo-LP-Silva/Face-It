@@ -23,7 +23,7 @@
   </head>
   <body>
     <?php include('../templates/navbar/navbar.php');?>
-    <?php include('../templates/channels.php');?>
+    <?php include('../templates/channels/channels.php');?>
 
     <div id = "content">
       <h1><?php echo $story['title'];?> </h1>
