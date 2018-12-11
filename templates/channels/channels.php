@@ -18,7 +18,7 @@
 
       foreach($user_channels as $channel)
       { ?>
-        <li> <a href=<?=$_POST['channel_path'] . "?channel=" . $channel['channel']?>> <?=$channel['channel']?> </a> </li>
+        <li> <a href=<?=$_POST['channel_path'] . "?channel=" . $channel['channel']?>><?=$channel['channel']?></a> </li>
         <?php 
       } ?>
   </ul>

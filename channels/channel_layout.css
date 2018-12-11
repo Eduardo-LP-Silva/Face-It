@@ -10,7 +10,7 @@
     top: 6em;
     bottom: 2em;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 15em;
     grid-template-rows: auto auto auto;
     overflow-x: hidden;
     overflow-y: auto;
@@ -28,7 +28,7 @@
     top: 6em;
     bottom: 2em;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 15em;
     grid-template-rows: auto auto auto;
     overflow: hidden;
 }

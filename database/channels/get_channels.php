@@ -19,16 +19,15 @@
         return $user_channels;
     }
 
-    function get_channel_info($channel)
+    function get_channel_description($channel)
     {
         global $db;
 
         $stmt = $db->prepare
         (
-            'SELECT channel.channel_description as channel_description, count(client_channel.client) as subscribers
-            FROM channel, client_channel
-            WHERE channel.channel_name = ?
-            AND client_channel.channel = channel.channel_name'
+            'SELECT channel.channel_description as channel_description
+            FROM channel
+            WHERE channel.channel_name = ?'
         );
         $stmt->execute(array($channel));
 

@@ -1,7 +1,10 @@
 <?php
     try
     {
-        $db = new PDO('sqlite:../database/db.db');
+        if($_POST['database_path'])
+            $db = new PDO('sqlite:' . $_POST['database_path']);
+        else
+            $db = new PDO('sqlite:../database/db.db');
     }
     catch (PDOException $e)
     {

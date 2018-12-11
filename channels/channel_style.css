@@ -42,6 +42,11 @@ body *
     text-align: center;
 }
 
+#subscribe > img:hover
+{
+    cursor: pointer;
+}
+
 #subscribe > p:nth-child(2)
 {
     font-size: 14pt;
