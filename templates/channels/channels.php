@@ -4,9 +4,8 @@
   include_once('../database/connection.php');
    
 
-  if(!isset($_SESSION['username'])){
+  if(!isset($_SESSION['username']))
     die(header("Location: ../login/login.php?error=nosession"));
-  }
 
 ?>
 
@@ -18,7 +17,8 @@
 
       foreach($user_channels as $channel)
       { ?>
-        <li> <a href=<?=$_POST['channel_path'] . "?channel=" . $channel['channel']?>><?=$channel['channel']?></a> </li>
+        <li> <a href=<?=$_POST['channel_path'] . "?channel=" . htmlspecialchars($channel['channel'])?>>
+          <?=htmlspecialchars($channel['channel'])?></a> </li>
         <?php 
       } ?>
   </ul>

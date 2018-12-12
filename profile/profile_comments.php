@@ -29,7 +29,7 @@
       {
     ?>
       <div class="history_item">
-        <p> <?=$user_comment['content']?> </p>
+        <p> <?=htmlspecialchars($user_comment['content'])?> </p>
         <div class="comment_stats">
           <div class="points">
             <img src="../assets/like_dislike.png" alt="Points Symbol"/>
@@ -37,7 +37,7 @@
           </div>
           <div class="story">
             <img src="../assets/story.png" alt="Story symbol"/> <!-- Change href's to post -->
-            <a href="../front_page/front_page.php"> <?=$user_comment['story_title']?> </a> 
+            <a href="../front_page/front_page.php"> <?=htmlspecialchars($user_comment['story_title'])?> </a> 
           </div>
         </div>
       </div>

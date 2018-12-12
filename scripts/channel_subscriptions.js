@@ -1,5 +1,24 @@
+let entityMap = 
+{
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+};
+
+function escapeHtml(string) 
+{
+    return String(string).replace(/[&<>"'\/]/g, function (s) 
+    {
+      return entityMap[s];
+    });
+}
+
+
 let subscribeEl = document.getElementById("subscribe");
-let channel = document.getElementById("channel_name").textContent;
+let channel = escapeHtml(document.getElementById("channel_name").textContent);
 
 if(subscribeEl.children[1].textContent == "Subscribe")
     subscribeEl.children[0].addEventListener('click', subscribe);

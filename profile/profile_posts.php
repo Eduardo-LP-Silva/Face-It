@@ -37,8 +37,9 @@
       {
     ?>
       <div class="history_item">
-        <a href="../post/post.php"> <?=$user_story['title']?> </a> <!-- Change href's to post -->
-        <a href="front_page.html"> <img src=<?php if($user_story['picture' == null]) echo '../assets/no_image.png'?>
+        <a href="../post/post.php"> <?=htmlspecialchars($user_story['title'])?> </a> <!-- Change href's to post -->
+        <a href="front_page.html"> <img src=<?php if($user_story['picture'] == null) {echo '../assets/no_image.png';}
+                else echo htmlspecialchars($user_story['picture']);?>
           alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
         <div class="points">
           <img src="../assets/like_dislike.png" alt="Points Symbol"/>
@@ -50,7 +51,7 @@
         </div>
         <div class="channel">
           <img src="../assets/channel.png" alt="Channel Icon"/>
-          <a href="front_page.html"> <?=$user_story['channel_name']?> </a> <!-- Change href's to channel -->
+          <a href="front_page.html"> <?=htmlspecialchars($user_story['channel_name'])?> </a> <!-- Change href's to channel -->
         </div>
       </div>
       <?php }; ?>

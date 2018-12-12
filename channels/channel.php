@@ -39,7 +39,7 @@
     <?php include('../templates/channels/channels.php');?>
     <section class="channel_info">
       <p id="channel_name"><?=$_GET['channel'];?></p>
-      <p id="channel_description"> <?=$channel_info['channel_description'];?> </p>
+      <p id="channel_description"> <?=htmlspecialchars($channel_info['channel_description']);?> </p>
       <p id="expand_bar"> >> </p>
       <div id="subscribe">
         <?php

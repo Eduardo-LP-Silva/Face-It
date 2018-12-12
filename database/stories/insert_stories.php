@@ -28,8 +28,6 @@
     else
         $post_image = $_POST['post_image'];
 
-    echo $_POST['post_channel'];
-
     $stmt->execute(array
     (
         ':client' => $_SESSION['username'],
@@ -39,4 +37,6 @@
         ':post_date' => $current_date,
         ':channel' => $_POST['post_channel']
     )); 
+
+    header('Location: ../../channels/channel.php?channel=' . $_POST['post_channel']);
 ?>

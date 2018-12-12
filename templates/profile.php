@@ -8,7 +8,7 @@
           echo '<h1 id="username"> '.$_SESSION['username'].' </h1>';
         ?>
       <img id="profile_image" src="../assets/profile_pic.png"/>
-      <h2 id="description"> A.k.a Marinheiro Ok Ok 4Real das Streetz </h2>
+      <h2 id="description"> A.k.a Marinheiro Ok Ok 4Real das Streetz </h2> <!-- Mudar para user profile description -->
       <a id="edit" href="edit_profile.php"> Edit </a>
     </section>
     <section id="stats">
