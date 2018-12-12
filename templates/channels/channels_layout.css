@@ -2,6 +2,7 @@
 {
     position: fixed;
     top: 5.4em;
+    bottom: 1em;
     left: 1em;
     width: 9em;
     overflow-x: hidden;
@@ -9,7 +10,7 @@
 
 #channels > ul
 {
-    height: 50em;
+    height: auto;
     overflow-y: auto;
     direction: rtl;
 }

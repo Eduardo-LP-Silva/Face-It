@@ -1,0 +1,48 @@
+#create_post
+{
+    width: 50%;
+    height: 25em;
+    margin: auto;
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: baseline;
+}
+
+#create_post > *
+{
+    margin-top: 1em;
+}
+
+#post_title
+{
+    width: auto;
+    height: 2em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+#post_image
+{
+    margin-left: 1.7em;
+    margin-right: 1.7em;
+    width: auto;
+    height: 1.5em;
+}
+
+#post_text
+{
+    margin-left: 1.7em;
+    margin-right: 1.7em;
+    resize: none;
+    width: auto;
+    height: 10em;
+}
+
+#post_submit
+{
+    width: 20%;
+    height: 2.5em;
+    margin: auto;
+}

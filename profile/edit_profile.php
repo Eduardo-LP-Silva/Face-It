@@ -1,0 +1,1 @@
+<!-- Coisas a editar: Geral - Nickname, Avatar | Personal - email, password -->

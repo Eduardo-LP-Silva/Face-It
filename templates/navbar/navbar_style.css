@@ -27,5 +27,10 @@ body > header > nav *
 
 #profile
 {
-    font-size: 12pt;
+    font-size: 15pt;
+}
+
+#signout
+{
+    font-size: 14pt;
 }

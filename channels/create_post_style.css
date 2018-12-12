@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+body
+{
+    background-color: black;
+}
+
+body *
+{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+#create_post
+{
+    background-color: rgb(43, 42, 42);
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em red;
+}
+
+#post_title
+{
+    font-size: 13pt;
+    border-radius: 0.3em;
+    transition: all 0.3s;
+}
+
+#post_image
+{
+    border-radius: 0.3em;
+    font-size: 12pt;
+    transition: all 0.3s;
+}
+
+#post_image:focus, #post_title:focus, #post_text:focus
+{
+    border-color: red;
+}
+
+#post_submit
+{
+    border-radius: 0.3em;
+    font-size: 16pt;
+    text-align: center;
+    border: none;
+    transition: all 0.2s;
+}
+
+#post_submit:hover
+{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}

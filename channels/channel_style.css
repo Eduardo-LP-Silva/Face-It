@@ -40,6 +40,7 @@ body *
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(43,42,42,1) 85%); 
     text-align: center;
+    cursor: default;
 }
 
 #subscribe > img:hover
@@ -47,9 +48,15 @@ body *
     cursor: pointer;
 }
 
+#subscribe > img:hover + p
+{
+    color: red;
+}
+
 #subscribe > p:nth-child(2)
 {
     font-size: 14pt;
+    transition: color 0.2s;
 }
 
 #subscribe > p:nth-child(3)
@@ -62,4 +69,10 @@ body *
     font-size: 14pt;
     color: white;
     text-decoration: none;
+    transition: color 0.2s;
+}
+
+#new_post:hover
+{
+    color: red;
 }

@@ -58,7 +58,7 @@
         <img src=<?=$subscribe_image_path?> alt="Subscribe(d) symbol"/>
         <p><?=$subscribe_text?></p>
         <p> </p> <!-- Div -->
-        <a id="new_post" href="create_post.php"> New Post </a> 
+        <a id="new_post" href=<?="create_post.php?channel=" . $_GET['channel']?> > New Post </a> 
       </div>
     </section>
     <?php include_once('../templates/stories/stories.php') ?>

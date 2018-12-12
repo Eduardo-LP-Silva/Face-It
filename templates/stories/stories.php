@@ -14,7 +14,7 @@
             <a href="../post/post.php"> <?=$story['title']?> </a> <!-- Change href's to post -->
             <a href="front_page.html"> <img src=<?php if($story['picture' == null]) echo '../assets/no_image.png'?>
                 alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
-            <a href="front_page.html"> <img src="../assets/comment.png" alt="Comment Symbol"/> </a> <!-- Change href's to post -->
+            <img src="../assets/comment.png" alt="Comment Symbol"/> <!-- Change href's to post -->
             <p> <?=$story['comment_number']?> </p>
             <img src="../assets/op.png" alt="OP Icon"/>
             <a href="front_page.html"> <?=$story['username']?> </a> <!-- Change href's to OP's profile -->
