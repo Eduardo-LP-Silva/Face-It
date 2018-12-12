@@ -48,7 +48,7 @@ CREATE TABLE story
     client TEXT REFERENCES client,
     title TEXT NOT NULL,
     content TEXT,
-    picture IMAGE, -- Might have to replace with text containing path
+    picture TEXT,
     points INTEGER NOT NULL,
     comment_number INTEGER NOT NULL CHECK(comment_number >= 0),
     post_date TEXT NOT NULL,
@@ -217,9 +217,8 @@ INSERT INTO story(story, client, title, content, picture, points, comment_number
     caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto 
     para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a 
     disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os 
-    programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.', ~
-    'https://i0.wp.com/blog.yen.io/wp-content/uploads/2017/11/hello-world.png?fit=2000%2C1062&ssl=1', 1, 0, 
-    '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
+    programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.',
+    NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
     (2, 'joao', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
 

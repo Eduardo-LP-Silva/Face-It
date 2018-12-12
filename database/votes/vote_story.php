@@ -9,7 +9,7 @@
 
     $stmt = $db->prepare
     (
-        "INSERT INTO likes_story(client, story, points) VALUES (:client , :story, :vote);"
+        "INSERT INTO likes_story(client, story, points) VALUES (:client , :story, :vote)"
     );
 
     $stmt->execute(array
