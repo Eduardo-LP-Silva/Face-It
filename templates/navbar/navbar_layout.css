@@ -5,6 +5,7 @@ body > header
     grid-template-rows: 1fr;
     position: fixed;
     width: 100%;
+    left: 0;
     top: 0;
     overflow: hidden;
 }
@@ -18,7 +19,7 @@ body > header
 {
     grid-column: start;
     grid-row: 1;
-    padding-left: 0.5%;
+    padding-left: 1%;
 }
 
 body > header > nav

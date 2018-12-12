@@ -1,7 +1,7 @@
 #stories
 {
     margin-top: 6em;
-    margin-left: 11em;
+    margin-left: 9em;
     grid-column-start: channels;
     grid-column-end: end;
     grid-row: header;
@@ -13,7 +13,8 @@
     display: grid;
     grid-template-columns: [start] 5em [title] 35em [image] 6.5em [comment] 5em [OP] 10em [channel] 5em [end];
     grid-template-rows: [start] 2em [number_top] 2.5em [number_bottom] 2em [end];
-    width: 73em;
+    width: 70em;
+    margin: auto;
     margin-bottom: 1em;
 }
 
@@ -46,7 +47,8 @@
 .story > a:nth-child(4)
 {
     grid-column: title;
-    grid-row: number_top;
+    grid-row-start: number_top;
+    grid-row-end: end;
     overflow-y: hidden;
 }
 

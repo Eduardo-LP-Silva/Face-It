@@ -1,18 +1,21 @@
 #channels
 {
     position: fixed;
-    top: 5.4em;
-    bottom: 1em;
-    left: 1em;
+    top: 5.44em;
+    left: 0;
     width: 9em;
+    bottom: 0;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
 #channels > ul
 {
-    height: auto;
+    width: 100%;
     overflow-y: auto;
     direction: rtl;
+    margin: auto;
+    margin-top: 1em;
 }
 
 #channels > ul > li
