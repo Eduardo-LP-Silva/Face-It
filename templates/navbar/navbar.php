@@ -10,7 +10,7 @@
         <img src="../assets/profile_pic.png" alt="Profile Picture">
       </a>
       <?php
-          echo '<a id="profile" href="front_page.html"> '. $_SESSION['username'].' </a>';
+          echo '<a id="profile" href="../profile/profile_posts.php"> '. $_SESSION['username'].' </a>';
       ?>
       <a id="signout" href="../login/logout.php"> Sign out </a>
   </nav>

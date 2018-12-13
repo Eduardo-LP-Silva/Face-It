@@ -57,8 +57,8 @@ function subscribe(event)
         let channels = document.querySelectorAll("#channels > ul > *");
         let channels_aux = [];
 
-        for(let i = 1; i < channels.length; i++)
-            channels_aux[i - 1] = channels[i].children[0].textContent;
+        for(let i = 3; i < channels.length; i++)
+            channels_aux.push(channels[i].children[0].textContent.trim());
 
         channels_aux.push(channel);
         channels_aux.sort();
@@ -80,7 +80,7 @@ function subscribe(event)
         
         new_el.appendChild(a_el);
 
-        channels[0].parentElement.insertBefore(new_el, channels[new_pos + 1]);
+        channels[0].parentElement.insertBefore(new_el, channels[new_pos + 3]);
     }
     
     let linktoexecute = "../database/channels/subscribe.php?channel=" + channel; 
@@ -103,8 +103,8 @@ function unsubscribe(event)
 
         let channels = document.querySelectorAll("#channels > ul > *");
 
-        for(let i = 0; i < channels.length; i++)
-            if(channels[i].children[0].textContent == channel)
+        for(let i = 3; i < channels.length; i++)
+            if(channels[i].children[0].textContent.trim() == channel)
                 channels[i].parentElement.removeChild(channels[i]);
 
     }

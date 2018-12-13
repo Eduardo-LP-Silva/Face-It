@@ -12,6 +12,8 @@
 <form id="channels" action=<?=$_POST['channel_path']?> method="get"> 
   <ul>
     <li> <a href="front_page.html"> New Channel </a> </li>
+    <li> <a href="../front_page/all.php">All</a> </li>
+    <li> <a href="../front_page/front_page.php">Front Page</a> </li>
     <?php 
       $user_channels = get_subscribed_channels($_SESSION['username']); //Mudar para user
 
