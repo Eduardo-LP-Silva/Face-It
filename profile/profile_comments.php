@@ -23,7 +23,7 @@
       include('../templates/navbar/navbar.php'); 
       include("../templates/profile.php");
 
-      $user_comments = get_user_comments();
+      $user_comments = get_user_comments($_GET['user']);
 
       foreach($user_comments as $user_comment)
       {

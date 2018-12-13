@@ -1,6 +1,6 @@
 <?php
 	
-	//include_once('../connection.php');
+	include_once('../connection.php');
 	include_once('../login/session.php');
 
 	// Verifies if username already exists in the database
@@ -41,60 +41,85 @@
     	return $user !== false && password_verify($pw, $user['pw']);
 	}
 
-	function get_client_posts_cnt()
+	function get_client_posts_count($user)
 	{
-
-		$db = new PDO('sqlite:../database/db.db');
-    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		global $db;
 
 		$stmt = $db->prepare
 		(
 			'SELECT COUNT(*) as story_nr 
 			FROM story, client 
-			WHERE story.client=client.username 
-			AND client.username=?'
+			WHERE story.client = client.username 
+			AND client.username = ?'
 		);
-    	$stmt->execute(array($_SESSION['username']));
+    	$stmt->execute(array($user));
 
     	return $stmt->fetch();
 	}
 
 	
-	function get_client_field($field)
+	function get_client_field($user, $field)
 	{
 
-		$db = new PDO('sqlite:../database/db.db');
-    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		global $db;
 
 		$stmt = $db->prepare
 		(
 			'SELECT '.$field.' FROM client where client.username=?'
 		);
-    	$stmt->execute(array($_SESSION['username']));
+    	$stmt->execute(array($user));
 
     	return $stmt->fetch();
 	}
 
-	function get_client_comments_cnt(){
-
-		$db = new PDO('sqlite:../database/db.db');
-    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    	$stmt = $db->prepare('SELECT COUNT(*) as comment_nr FROM comment, client WHERE comment.client=client.username AND client.username=?');
-    	$stmt->execute(array($_SESSION['username']));
-
-    	return $stmt->fetch();
-
-	}
-
-	function is_subscribed($client)
+	function get_client_comments_count($user)
 	{
 		global $db;
 
+		$stmt = $db->prepare
+		(
+			'SELECT COUNT(*) as comment_nr 
+			FROM comment, client 
+			WHERE comment.client = client.username 
+			AND client.username = ?'
+		);
+    	$stmt->execute(array($user));
 
+    	return $stmt->fetch();
 	}
 
+	function get_client_picture($client)
+	{
+		global $db;
 
+		$stmt = $db->prepare
+		(
+			'SELECT picture
+			FROM user_profile, client
+			WHERE user_profile.client = client.username
+			AND client.username = ?'
+		);
 
+		$stmt->execute(array($client));
+		
+		return $stmt->fetch();
+	}
+
+	function get_client_description($client)
+	{
+		global $db;
+
+		$stmt = $db->prepare
+		(
+			'SELECT personal_description
+			FROM user_profile, client
+			WHERE user_profile.client = client.username
+			AND client.username = ?'
+		);
+
+		$stmt->execute(array($client));
+		
+		return $stmt->fetch();
+	}
 
 ?>

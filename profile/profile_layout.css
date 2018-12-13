@@ -14,7 +14,7 @@
     grid-column: start;
     grid-row-start: start;
     grid-row-end: end;
-    max-width: 15em;
+    width: 15em;
 }
 
 #username

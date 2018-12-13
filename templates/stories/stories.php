@@ -1,4 +1,4 @@
-<section id="stories"> <!-- Get with php from DB, change href's accordingly -->
+<section id="stories">
     <?php foreach($stories as $story)
     { ?>
         <div class="story" id=<?=htmlspecialchars($story['ID'])?>>
@@ -15,13 +15,13 @@
             <img src=<?php if($story['picture'] == null) {echo '../assets/no_image.png';}
                 else echo htmlspecialchars($story['picture']);?>
                 alt="Post's minimized image or logo" />
-            <img src="../assets/comment.png" alt="Comment Symbol"/> <!-- Change href's to post -->
+            <img src="../assets/comment.png" alt="Comment Symbol"/>
             <p> <?=$story['comment_number']?> </p>
             <img src="../assets/op.png" alt="OP Icon"/>
-            <a href="front_page.html"> <?=$story['username']?> </a> <!-- Change href's to OP's profile -->
+            <a href=<?="../profile/profile_posts.php?user=" . $story['username']?>> <?=$story['username']?> </a> 
             <img src="../assets/channel.png" alt="Channel Icon"/>
             <a href=<?="../channels/channel.php?channel=" . htmlspecialchars($story['channel_name'])?>> 
-                <?=htmlspecialchars($story['channel_name'])?> </a> <!-- Change href's to channel -->
+                <?=htmlspecialchars($story['channel_name'])?> </a>
         </div>
         <?php
     } ?>

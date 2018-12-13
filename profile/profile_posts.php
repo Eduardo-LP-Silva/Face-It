@@ -3,12 +3,6 @@
   include_once('../login/session.php');
   include_once('../database/connection.php'); 
   include_once("../database/stories/get_stories.php"); 
-
-  if(!isset($_SESSION['username'])){
-    die(header("Location: ../login/login.php?error=nosession"));
-  }
-
-
 ?>
 
 <!-- Replace info with respective user's -->
@@ -31,7 +25,7 @@
       include('../templates/navbar/navbar.php'); 
       include("../templates/profile.php");
 
-      $user_stories = get_user_stories();
+      $user_stories = get_user_stories($_GET['user']);
 
       foreach($user_stories as $user_story)
       {

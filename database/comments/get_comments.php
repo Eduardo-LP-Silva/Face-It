@@ -2,11 +2,10 @@
 
     include_once('../login/session.php');
 
-    function get_user_comments()
+    function get_user_comments($user)
     {
         global $db;
 
-        //Mudar para user
         $stmt = $db->prepare
         (
             "SELECT comment.comment as ID, comment.content as content, comment.points as points, comment.story as story,
@@ -18,7 +17,7 @@
             ORDER BY comment.comment_date DESC"
         );
 
-        $stmt->execute(array($_SESSION['username']));
+        $stmt->execute(array($user));
 
         $user_comments = $stmt->fetchAll();
 

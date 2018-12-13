@@ -40,11 +40,10 @@
         return $front_page_stories;
     }
 
-    function get_user_stories()
+    function get_user_stories($user)
     {
         global $db;
 
-        //Mudar para user
         $stmt = $db->prepare
         (
             "SELECT story.story as ID, story.picture as picture, story.title as title, story.content as content, story.client as client, story.picture as picture, story.points as points, 
@@ -56,7 +55,7 @@
             ORDER BY story.post_date DESC"
         );
 
-        $stmt->execute(array($_SESSION['username']));
+        $stmt->execute(array($user));
 
         $user_stories = $stmt->fetchAll();
 
