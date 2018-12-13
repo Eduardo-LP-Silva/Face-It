@@ -40,9 +40,7 @@ for(let i = 0; i < voteBts.length; i++)
             }
         }
         
-        //Mudar para user
-        let linktoexecute = "../database/votes/get_personal_story_votes.php?client=" + "Des_locado" + "&story=" 
-            + this.parentNode.id; 
+        let linktoexecute = "../database/votes/get_personal_story_votes.php?story=" + this.parentNode.id; 
         user_likes.open("GET", linktoexecute, true);
         user_likes.send();
     });
@@ -81,8 +79,7 @@ function vote_story(button, votes, substitue_items = true)
         }
     }
 
-    //Mudar para user
-    let linktoexecute = "../database/votes/vote_story.php?client=" + "Des_locado" + "&story_id=" + button.parentNode.id 
+    let linktoexecute = "../database/votes/vote_story.php?story_id=" + button.parentNode.id 
         + "&vote=" + votes; 
     request.open("GET", linktoexecute, true);
     request.send();
@@ -111,9 +108,7 @@ function remove_story_vote(button, vote, extra_vote)
         }
     }
 
-    //Mudar para user
-    let linktoexecute = "../database/votes/remove_story_vote.php?client=" + "Des_locado" + "&story_id=" 
-        + button.parentNode.id + "&vote=" + vote; 
+    let linktoexecute = "../database/votes/remove_story_vote.php?story_id=" + button.parentNode.id + "&vote=" + vote; 
     request.open("GET", linktoexecute, true);
     request.send();
 }

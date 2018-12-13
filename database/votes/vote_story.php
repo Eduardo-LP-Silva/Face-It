@@ -1,7 +1,9 @@
 <?php
 
+    include_once("../../login/session.php");
+
     $story_id = $_GET['story_id'];
-    $client = $_GET['client'];
+    $client = $_SESSION['username'];
     $vote = $_GET['vote'];
 
     $db = new PDO('sqlite:../db.db');

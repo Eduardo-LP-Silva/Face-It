@@ -1,11 +1,13 @@
 <?php
 
-    if($_GET['client'] && $_GET['story'])
+    if($_GET['story'])
     {
+        include_once("../../login/session.php");
+
         $db = new PDO('sqlite:../db.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-        $client = $_GET['client'];
+        $client = $_SESSION['username'];
         $story = $_GET['story'];
 
         $array = prepare_and_execute_statement($db, $story, $client);
