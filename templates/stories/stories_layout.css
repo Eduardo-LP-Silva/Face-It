@@ -53,15 +53,11 @@
 }
 
 /* Image */
-.story > a:nth-child(5)
+.story > img:nth-child(5)
 {
     grid-column: image;
     grid-row-start: start;
     grid-row-end: end;
-}
-
-.story > a:nth-child(5) > img
-{
     padding-left: 1em;
     padding-top: 0.5em;
     width: 5.5em;
