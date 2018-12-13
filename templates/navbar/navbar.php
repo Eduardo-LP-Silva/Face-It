@@ -1,5 +1,6 @@
 <?php
   include_once('../login/session.php');
+  include_once('../database/connection.php');
   include_once('../database/client/get_client.php');
 
   $picture = get_client_picture($_SESSION['username'])['picture'];

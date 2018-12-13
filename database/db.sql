@@ -115,7 +115,17 @@ FOR EACH ROW
 BEGIN
     UPDATE story
     SET points = points + New.points
-    where story.story = New.story;
+    WHERE story.story = New.story;
+
+    UPDATE client
+    SET karma = karma + New.points
+    WHERE username IN 
+    (
+        SELECT username
+        FROM client, story
+        WHERE client.username = story.client
+        AND story.story = New.story
+    );
 END;
 
 CREATE TRIGGER update_story_points_on_delete
@@ -125,6 +135,16 @@ BEGIN
     UPDATE story
     SET points = points - Old.points
     where story.story = Old.story;
+
+    UPDATE client
+    SET karma = karma - Old.points
+    WHERE username IN 
+    (
+        SELECT username
+        FROM client, story
+        WHERE client.username = story.client
+        AND story.story = Old.story
+    );
 END;
 
 CREATE TRIGGER update_comment_points_on_insert
@@ -134,6 +154,16 @@ BEGIN
     UPDATE comment
     SET points = points + New.points
     where comment.comment = New.comment;
+
+    UPDATE client
+    SET karma = karma + New.points
+    WHERE username IN 
+    (
+        SELECT username
+        FROM client, comment
+        WHERE client.username = comment.client
+        AND comment.comment = New.comment
+    );
 END;
 
 CREATE TRIGGER update_comment_points_on_delete
@@ -143,22 +173,28 @@ BEGIN
     UPDATE comment
     SET points = points - Old.points
     where comment.comment = Old.comment;
+
+    UPDATE client
+    SET karma = karma - Old.points
+    WHERE username IN 
+    (
+        SELECT username
+        FROM client, comment
+        WHERE client.username = comment.client
+        AND comment.comment = Old.comment
+    );
 END;
 
 -- Insert
-
--- INSERT INTO client(username, pw, email, karma) VALUES ('3duardo_S', 1234, '123@feup.pt',500);
--- INSERT INTO client(username, pw, email, karma) VALUES ('Des_locado', 4321, '165@feup.pt',100);
--- INSERT INTO client(username, pw, email, karma) VALUES ('FF7', 5678, '199@feup.pt',212);
 INSERT INTO client(username, pw, email, karma) VALUES ('edu', 
-    '$2y$12$7w2lRpjB5JBiN.nukd8TueDZoC/tekNtGsaHGVyQ.Gj5ka9RFllKS', 'joao-carlos.alves@hotmail.com', 30);
+    '$2y$12$7w2lRpjB5JBiN.nukd8TueDZoC/tekNtGsaHGVyQ.Gj5ka9RFllKS', 'eduardo__lps@hotmail.com', 0);
 INSERT INTO client(username, pw, email, karma) VALUES ('joao', 
     '$2y$12$Tz2igae3zaGPp2MZE/f2VuvR.sp1M8c8tAguPwPVsyZ2.xxTRNCIW', 
-    'joao-carlos.alves@hotmail.com', 10);
+    'joao-carlos.alves@hotmail.com', 0);
 
 INSERT INTO user_profile(client, personal_description, picture) VALUES ('edu', 'O Marinheiro', 
     'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/28379613_1425786984197475_7671652175703607841_n.jpg?_nc_cat=103&_nc_ht=scontent.flis7-1.fna&oh=bebf7289651fd1f8a4b077f378b1a47d&oe=5CA6507D');
-INSERT INTO user_profile(client, personal_description, picture) VALUES ('joao', 'O Marinheiro', 
+INSERT INTO user_profile(client, personal_description, picture) VALUES ('joao', 'O Deslocado', 
     'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/24993344_1632481790124350_4765604731530085149_n.jpg?_nc_cat=100&_nc_ht=scontent.flis7-1.fna&oh=ee96951c81ee47104586f7da14b5f7d8&oe=5CAF13C9');
 -- INSERT INTO user_profile(client, personal_description, picture) VALUES ('FF7', 'O Marinheiro', 'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/47252887_2485383431488395_7276177372590637056_n.jpg?_nc_cat=106&_nc_ht=scontent.flis7-1.fna&oh=230ee2703db93c913eca2b893da2f219&oe=5C9E9060');
 
@@ -212,7 +248,7 @@ INSERT INTO client_channel(client, channel) VALUES ('edu', 'Aviation');
 INSERT INTO client_channel(client, channel) VALUES ('edu', 'Conspiracy');
 
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (1, 'edu', 'Hello World', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. 
+    (1, 'joao', 'Hello World', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. 
     O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os 
     caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto 
     para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a 
@@ -220,7 +256,7 @@ INSERT INTO story(story, client, title, content, picture, points, comment_number
     programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.',
     NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (2, 'joao', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
+    (2, 'edu', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
 
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
     (NULL,'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00', 2);
