@@ -39,6 +39,7 @@ header{
     color: white;
 }
 
+
 body > header > nav *
 {
     text-decoration: none;
@@ -477,8 +478,6 @@ ul {
 }
 
 .comment-box .comment-head i:hover {
-  margin: 0;
-  padding: 0;
  color: #03658c;
 }
 

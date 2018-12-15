@@ -4,12 +4,14 @@
   include_once('../database/stories/get_stories.php');
   include('../database/votes/get_personal_story_votes.php');
   include('../utils/utils.php');
-  
-  $stories = get_user_stories();
+
+  $stories = get_user_stories('joao');
 
   foreach($stories as $story) {
     $comments = get_story_comments($story['ID']);
-    $nComments = get_comments_by_story($story['ID']);
+    $nComments = get_subcomments_by_story($story['ID']);
+    $nComments2 = get_comments_by_story($story['ID']);
+    $nTotal = sizeof($nComments) + sizeof($nComments2);
   }
 ?>
 
@@ -17,9 +19,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Post</title>
+    <title>FaceIt</title>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="post.css">
-    <!-- <link rel="stylesheet" href="../templates/templates.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<!-- <link rel="stylesheet" href="../templates/templates.css"> -->
   </head>
   <body>
     <?php include('../templates/navbar/navbar.php');?>
@@ -35,7 +40,7 @@
 
     <div id="commentInput">
       <form action="addComment.php" method="post"> 
-          <p id = "commentsNumber"><?php echo sizeof($nComments)?> Comments</p>
+          <p id = "commentsNumber"><?php echo $nTotal?> Comments</p>
           <input type='hidden' value=<?php echo $story['client'];?> name='client'/> 
           <input type='hidden' value=<?php echo $story['ID'];?> name='story'/> 
           <input type="text" id="name" name="user_name" placeholder="       Add a comment"/>
@@ -56,11 +61,12 @@
               <div class="comment-box">
                 <div class="comment-head">
                   <h6 class="comment-name by-author"><a href="../profile/profile_posts.php"><?php echo $comment['username'];?> </a></h6>
-                  <?php
-                    echo '<span>'.$comment['comment_date'].' </span>';
-                  ?>
+                  <span>20 minutes ago</span>
                   <i class="fa fa-reply"></i>
-                  <i class="fa fa-heart"></i>
+                  <i class="fas fa-trash"></i>
+                  <form action="removeComment.php" method="post"> 
+                      <input type='hidden' value=<?php echo $comment['ID'];?> name='commentId'/> 
+                  </form>
                 </div>
                 <div class="comment-content">
                   <?php echo $comment['content'];?>
@@ -69,6 +75,23 @@
             </div>
             <!-- Comment Answers -->
             <ul class="comments-list reply-list">
+            <li class="replyForm" style="display:none">
+                <div class="comment-avatar"><img src='https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/47252887_2485383431488395_7276177372590637056_n.jpg?_nc_cat=106&_nc_ht=scontent.flis7-1.fna&oh=230ee2703db93c913eca2b893da2f219&oe=5C9E9060' alt=""></div>
+                <div class="comment-box">
+                  <div class="comment-head">
+                    <h6 class="comment-name by-author"><a href="../profile/profile_posts.php"></a></h6>
+                    <span>Add a reply to the comment</span>
+                  </div>
+                  <div class="comment-content" >
+                    <form action="addReply.php" method="post"> 
+                      <input type="text" id="name" name="user_name"/>
+                      <input type='hidden' value="edu" name='client'/> 
+                      <input type='hidden' value=<?php echo $story['ID'];?> name='story'/> 
+                      <input type='hidden' value=<?php echo $comment['ID'];?> name='parent'/>
+                    </form>
+                  </div>
+                </div>
+              </li>
             <?php
             foreach($commentReplies as $commentReply){
             ?>
@@ -78,8 +101,10 @@
                   <div class="comment-head">
                     <h6 class="comment-name by-author"><a href="../profile/profile_posts.php"><?php echo $commentReply['username'];?></a></h6>
                     <span>10 minutes ago</span>
-                    <i class="fa fa-reply"></i>
-                    <i class="fa fa-heart"></i>
+                    <i class="fas fa-trash"></i>
+                    <form action="removeCommentReply.php" method="post"> 
+                      <input type='hidden' value=<?php echo $commentReply['ID'];?> name='commentId'/> 
+                  </form>
                   </div>
                   <div class="comment-content">
                     <?php echo $commentReply['content'];?>
@@ -89,7 +114,9 @@
               <?php }; ?>
             </ul>
           </li>
-          <?php }; ?>
+          <?php 
+            };
+          ?>
         </ul>
       </div>
       </div>
