@@ -51,7 +51,7 @@
     <div id="commentInput">
       <form action="addComment.php" method="post"> 
           <p id = "commentsNumber"><?php echo $nTotalTest?> Comments</p>
-          <input type='hidden' value=<?php echo $story['client'];?> name='client'/> 
+          <input type='hidden' value=<?php echo $_SESSION['username'];?> name='client'/> 
           <input type='hidden' value=<?php echo $story['story'];?> name='story'/> 
           <input type="text" id="name" name="user_name" placeholder="       Add a comment"/>
       </form>
