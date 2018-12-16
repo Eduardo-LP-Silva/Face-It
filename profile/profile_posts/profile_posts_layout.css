@@ -19,7 +19,7 @@
 }
 
 /* Image */
-.history_item > a:nth-child(2) > img
+.history_item > img:nth-child(2)
 {
     padding-left: 1em;
     padding-top: 0.5em;
@@ -58,7 +58,7 @@
 }
 
 /* Comment Symbol */
-.comment > a
+.comment > img
 {
     grid-column: 1;
     grid-row: 1;

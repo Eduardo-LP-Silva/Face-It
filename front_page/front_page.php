@@ -31,7 +31,6 @@
   <body>
     <?php $_GET['banner'] = 'The Face of the Internet'?>
     <?php include('../templates/navbar/navbar.php');?>
-    <?php $_POST['channel_path'] = "../channels/channel.php";?>
     <?php include('../templates/channels/channels.php');?>
     <?php include("../templates/stories/stories.php"); ?>
   </body>

@@ -35,7 +35,6 @@
   <body>
     <?php $_GET['banner'] = $_GET['channel'];?>
     <?php include('../templates/navbar/navbar.php');?>
-    <?php $_POST['channel_path'] = "./channel.php"; ?>
     <?php include('../templates/channels/channels.php');?>
     <section class="channel_info">
       <p id="channel_name"><?=$_GET['channel'];?></p>

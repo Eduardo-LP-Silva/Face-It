@@ -10,136 +10,6 @@ body *
     font-family: 'Fjalla One', sans-serif;
 }
 
-body > header
-{
-    border-bottom-style: solid;
-    border-bottom-color: gray;
-    background-color: black;
-}
-
-#profile_pic{
-  margin-left: 35em;
-}
-
-header{
-  float: right;
-}
-
-#title
-{
-    font-size: 50pt;
-    text-decoration: none;
-    color: orangered;
-}
-
-#subtitle
-{
-    font-size: 25pt;
-    text-decoration: none;
-    color: white;
-}
-
-
-body > header > nav *
-{
-    text-decoration: none;
-    color: white;
-}
-
-#profile
-{
-    font-size: 16pt;
-}
-
-#channels
-{
-    border-right-style: solid;
-    border-right-color: gray;
-}
-
-#channels > ul *
-{
-    list-style-type: none;
-    text-decoration: none;
-    color: white;
-}
-
-body > header
-{
-    display:grid;
-    grid-template-columns: [start] 12em [subtitle] 20em [nav] 1fr [end];
-    grid-template-rows: 1fr;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    overflow: hidden;
-}
-
-#subtitle
-{
-    padding-top: 1em;
-}
-
-#title
-{
-    grid-column: start;
-    grid-row: 1;
-    padding-left: 0.5%;
-}
-
-body > header > nav
-{
-    grid-column: nav;
-    grid-row: 1;
-    text-align: right;
-    display: flex;
-    justify-content: right;
-    padding-right: 2em;
-    align-items: center;
-}
-
-#profile_pic > img
-{
-    border-radius: 50%;
-    width: 4.5em;
-}
-
-#profile
-{
-    padding-left: 1em;
-    padding-right: 1em;
-    border-right: 0.05em solid white;
-}
-
-#signout
-{
-    padding-left: 1.2em
-}
-
-#channels
-{
-    position: fixed;
-    top: 5.4em;
-    left: 1em;
-    width: 9em;
-    overflow-x: hidden;
-}
-
-#channels > ul
-{
-    height: 50em;
-    overflow-y: auto;
-    direction: rtl;
-}
-
-#channels > ul *
-{
-    direction: ltr;
-    text-align: center;
-    border-bottom: 0.1em solid gray;
-    margin-bottom: 0.5em;
-}
-
 /* // */
 
 h1{
@@ -148,12 +18,13 @@ h1{
   margin-top: 8rem;
 }
 
-img{
+#content > img
+{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
-  height: 30%;
+  max-width: 20em;
+  max-height: 20em;
   border: 2px solid white;
 }
 
@@ -163,19 +34,13 @@ img{
 }
 
 #description{
-  font-family: Arial, Helvetica, sans-serif;
   margin-top: 2em;
   color:white;
 }
 
 #postData{
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75em;
   color:white;
-}
-
-a{
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 a:link {
@@ -205,7 +70,6 @@ a:hover {
 
 #commentsNumber{
   margin-top:2em;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75em;
 }
 
@@ -220,7 +84,6 @@ input{
 #comments{
   margin-left: 11em;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 3%;
 }
 
@@ -238,15 +101,6 @@ span{
   border-top: 0.1em solid gray;
   border-bottom: 0.1em solid gray;
 }
-
-.commentData{
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.commentDesc{
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 
 /* --------------------------------- */
 

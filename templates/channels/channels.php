@@ -9,17 +9,17 @@
 
 ?>
 
-<form id="channels" action=<?=$_POST['channel_path']?> method="get"> 
+<form id="channels" action="../channels/channel.php" method="get"> 
   <ul>
     <li> <a href="front_page.html"> New Channel </a> </li>
     <li> <a href="../front_page/all.php">All</a> </li>
     <li> <a href="../front_page/front_page.php">Front Page</a> </li>
     <?php 
-      $user_channels = get_subscribed_channels($_SESSION['username']); //Mudar para user
+      $user_channels = get_subscribed_channels($_SESSION['username']);
 
       foreach($user_channels as $channel)
       { ?>
-        <li> <a href=<?=$_POST['channel_path'] . "?channel=" . htmlspecialchars($channel['channel'])?>>
+        <li> <a href=<?= "../channels/channel.php?channel=" . htmlspecialchars($channel['channel'])?>>
           <?=htmlspecialchars($channel['channel'])?></a> </li>
         <?php 
       } ?>

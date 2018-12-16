@@ -31,21 +31,22 @@
       {
     ?>
       <div class="history_item">
-        <a href="../post/post.php"> <?=htmlspecialchars($user_story['title'])?> </a> <!-- Change href's to post -->
-        <a href="front_page.html"> <img src=<?php if($user_story['picture'] == null) {echo '../assets/no_image.png';}
+        <a href=<?= "../post/post.php?post=" . $user_story['ID']?>> <?=htmlspecialchars($user_story['title'])?> </a> <!-- Change href's to post -->
+        <img src=<?php if($user_story['picture'] == null) {echo '../assets/no_image.png';}
                 else echo htmlspecialchars($user_story['picture']);?>
-          alt="Post's minimized image or logo" /> </a> <!-- Change href's to post   -->
+          alt="Post's minimized image or logo" />
         <div class="points">
           <img src="../assets/like_dislike.png" alt="Points Symbol"/>
           <p> <?=$user_story['points']?> </p>
         </div>
         <div class="comment">
-          <a href="front_page.html"> <img src="../assets/comment.png" alt="Comment Symbol"/> </a> <!-- Change href's to post -->
+          <img src="../assets/comment.png" alt="Comment Symbol"/>
           <p> <?=$user_story['comment_number']?> </p>
         </div>
         <div class="channel">
           <img src="../assets/channel.png" alt="Channel Icon"/>
-          <a href="front_page.html"> <?=htmlspecialchars($user_story['channel_name'])?> </a> <!-- Change href's to channel -->
+          <a href=<?="../channels/channel.php?channel=" . htmlspecialchars($user_story['channel_name'])?>> 
+          <?=htmlspecialchars($user_story['channel_name'])?> </a>
         </div>
       </div>
       <?php }; ?>

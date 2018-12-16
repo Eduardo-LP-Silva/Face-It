@@ -36,8 +36,8 @@
             <p> <?=$user_comment['points']?> </p>
           </div>
           <div class="story">
-            <img src="../assets/story.png" alt="Story symbol"/> <!-- Change href's to post -->
-            <a href="../front_page/front_page.php"> <?=htmlspecialchars($user_comment['story_title'])?> </a> 
+            <img src="../assets/story.png" alt="Story symbol"/>
+            <a href=<?= "../post/post.php?post=" . $user_comment['story']?>> <?=htmlspecialchars($user_comment['story_title'])?> </a> 
           </div>
         </div>
       </div>

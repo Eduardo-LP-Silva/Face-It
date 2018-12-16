@@ -79,4 +79,19 @@
 
         return $channel_stories;
     }
+
+    function get_story_info($story)
+    {
+        global $db;
+
+        $stmt = $db->prepare
+        (
+            'SELECT *
+            FROM story
+            WHERE story.story = ?'
+        );
+        $stmt->execute(array($story));
+
+        return $stmt->fetch();
+    }
 ?>

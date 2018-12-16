@@ -32,17 +32,18 @@
         //Mudar para user
         $stmt = $db->prepare
         (
-            "SELECT DISTINCT comment.comment as ID, client.username as username, user_profile.picture as picture, comment.content as content, comment.points as points, comment.story as story,
-                story.title as story_title
+            "SELECT DISTINCT comment.comment as ID, client.username as username, user_profile.picture as picture, 
+            comment.content as content, comment.points as points, comment.story as story, story.title as story_title
             FROM comment, client, story, user_profile
-            WHERE story.story = $id
+            WHERE story.story = ?
             AND client.username = user_profile.client
             AND comment.client = client.username
             AND comment.parent_comment IS NULL
+            AND comment.story = story.story
             ORDER BY comment.comment_date DESC"
         );
 
-        $stmt->execute();
+        $stmt->execute(array($id));
 
         $user_comments = $stmt->fetchAll();
 
