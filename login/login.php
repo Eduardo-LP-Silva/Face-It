@@ -10,6 +10,12 @@
   <script src="login.js" defer ></script>
 </head>
 <body>
+   <?php 
+   if(isset($_GET['error'])){
+      $error = $_GET['error'];
+      echo "<script type='text/javascript'>alert('".$error."')</script>"; 
+    }
+   ?>
   <header>
     <a id="title" href="login.php">FaceIt</a>
     <h1 id="subtitle"> Face of the Internet </h1>
