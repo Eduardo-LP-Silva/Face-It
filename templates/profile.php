@@ -2,6 +2,9 @@
   include_once('../login/session.php');
   include_once('../database/client/get_client.php');
 
+  if(!isset($_SESSION['username']))
+  die(header("Location: ../login/login.php?error=nosession"));
+
   if(!$_GET['user'])
     die(header('Location: ../front_page/front_page.php'));
 
