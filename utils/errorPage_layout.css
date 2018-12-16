@@ -1,0 +1,22 @@
+#errorBox
+{
+    width: 50%;
+    height: 25em;
+    margin: auto;
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: baseline;
+}
+
+body p
+{
+	margin: auto;
+}
+
+#btn
+{
+	margin: auto;
+	padding: 10px 24px;
+}

@@ -1,4 +1,5 @@
 <?php
+  include_once('../login/session.php');
   include_once('../database/connection.php');
   include_once('../database/channels/get_channels.php');
   include_once('../database/stories/get_stories.php');
@@ -8,8 +9,10 @@
 
   $channel_info = get_channel_description($_GET['channel']);
 
-  if(empty($channel_info[0]))
-    die(header('Location: ../front_page/front_page.php'));
+  if(empty($channel_info[0])){
+      $_SESSION['error_message'] = 'CHANNEL NOT FOUND';
+      die(header('Location: ../utils/errorPage.php'));
+  }
   
   $stories = get_channel_stories($_GET['channel']);
 ?>

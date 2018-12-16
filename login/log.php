@@ -9,14 +9,14 @@
 		$password = $_POST['pw'];
 
 		if(empty($username) || empty($password)){
-			header("Location: login.php?error=emptyfields");
+			header("Location: login.php?error=emptyfields&uid=".$username);
 			exit();
 		}
 
 		else {
 			if(checkClientComb($username, $password)){
 				$_SESSION['username'] = $username;
-				header("Location: ../profile/profile_posts.php");
+				header("Location: ../front_page/front_page.php");
 				
 			}
 			else {

@@ -2,7 +2,16 @@
 
   include_once('../login/session.php');
   include_once('../database/connection.php'); 
-  include_once("../database/stories/get_stories.php"); 
+  include_once("../database/stories/get_stories.php");
+  include_once("../database/client/get_client.php"); 
+
+  if(!checkUsername($_GET['user'])){
+        $_POST['error_message'] = 'PROFILE NOT FOUND';
+        die(header("Location: ../utils/errorPage.php"));
+       
+  }
+
+
 ?>
 
 <!-- Replace info with respective user's -->

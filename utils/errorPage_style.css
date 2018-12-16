@@ -1,0 +1,30 @@
+body
+{
+    background-color: black;
+}
+
+#errorBox
+{
+    background-color: rgb(43, 42, 42);
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em red;
+}
+
+body p
+{
+    font-size: 40pt;
+    text-decoration: none;
+    color: orangered;
+}
+
+#btn:hover, #btn:focus {
+  	color: #000;
+  	text-decoration: none;
+  	cursor: pointer;
+}
+
+#btn
+{
+	border-radius: 4px;
+  	background-color: red;
+}

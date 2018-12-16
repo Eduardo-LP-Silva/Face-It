@@ -10,12 +10,12 @@
 
 
 		if(empty($username) || empty($password)|| empty($userMail)){
-			header("Location: login.php?error=emptyfields&uid=".$username."&mail=".$userMail);
+			header("Location: login.php?error=emptyfields&username=".$username."&mail=".$userMail);
 			exit();
 		}
 
 		else if(!filter_var($userMail, FILTER_VALIDATE_EMAIL)){
-			header("Location: login.php?error=invalidmail&uid=".$username);
+			header("Location: login.php?error=invalidmail&username=".$username);
 			exit();
 		}
 

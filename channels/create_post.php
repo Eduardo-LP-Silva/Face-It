@@ -1,3 +1,18 @@
+<?php
+   include_once('../login/session.php');
+   include_once('../database/connection.php');
+   include_once('../database/channels/get_channels.php');
+
+   $channel_info = get_channel_description($_GET['channel']);
+
+    if(empty($channel_info[0])){
+      $_SESSION['error_message'] = 'CHANNEL NOT FOUND';
+      die(header('Location: ../utils/errorPage.php'));
+    }
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>

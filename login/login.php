@@ -23,9 +23,9 @@
         <p class="message">Don't have an account ? <a href="#">Register now</a></p>
       </form>
       <form id="register-form" action="reg.php" method="POST">
-        <input type="text" name="uid" placeholder="name"/>
+        <input type="text" name="uid" value="<?php if (isset($_GET['username'])) {echo $_GET['username'];} ?>" placeholder="name"/>
         <input type="password" name="pw" placeholder="password"/>
-        <input type="text" name="mail" placeholder="email address"/>
+        <input type="text" name="mail" value="<?php if (isset($_GET['mail'])) {echo $_GET['mail'];} ?>" placeholder="email address"/>
         <button type="submit" name="register-submit">create</button>
         <p class="message">Already registered ?  <a href="#">Sign In</a></p>
       </form>
