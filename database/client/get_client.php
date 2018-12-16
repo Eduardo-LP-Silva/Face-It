@@ -27,6 +27,19 @@
     	$stmt->execute(array($username, password_hash($pw, PASSWORD_DEFAULT, $options), $mail));
 	}
 
+	function insertProfile($client)
+	{
+		$db = new PDO('sqlite:../database/db.db');
+    	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    	$defaultPic = 'https://image.freepik.com/icones-gratis/imagem-do-usuario-com-fundo-preto_318-34564.jpg';
+    	$defaultDes = 'Nothing to say';
+
+    	$stmt = $db->prepare("INSERT INTO user_profile (client, personal_description, picture) VALUES(?, ?, ?)");
+    	
+    	$stmt->execute(array($client, $defaultDes, $defaultPic));
+	}
+
 	function checkClientComb($username, $pw)
 	{
 
