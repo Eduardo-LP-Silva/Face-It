@@ -5,8 +5,8 @@ function UR_exists($url){
     return stripos($headers[0],"200 OK")?true:false;
  }
 
-$db = new PDO('sqlite:../database/db.db');
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ $_POST['database_path'] = '../db.db';
+ include_once('../connection.php');
 
 $clientId = $_POST["client"];
 $description = $_POST["description"];
@@ -19,7 +19,9 @@ if ($password != ""){
     $stmt = $db->prepare("UPDATE client 
     SET pw = ?
     WHERE username = ?");
-    $stmt->execute(array($password, $clientId));
+
+    $options = ['cost' => 12];
+    $stmt->execute(array(password_hash($password, PASSWORD_DEFAULT, $options), $clientId));
 }
 
 if ($email != ""){
@@ -44,6 +46,6 @@ if ($description != ""){
     WHERE client = ?");
     $stmt->execute(array($description, $clientId));
 }
-header("Location: ../profile/profile_posts.php?user=". $clientId);
+header("Location: ../../profile/profile_posts.php?user=". $clientId);
 exit();
 ?>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
 #content{
     margin-top: 10rem;
     margin-left: auto;
@@ -22,7 +24,11 @@
   body {
     background: var(--bg);
     color: var(--main);
-    font-family: Roboto, sans-serif;
+  }
+
+  body *
+  {
+    font-family: 'Fjalla One', sans-serif;
   }
   
   /* Basic Styling */
