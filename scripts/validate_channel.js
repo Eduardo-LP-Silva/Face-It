@@ -1,13 +1,3 @@
-let entityMap = 
-{
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': '&quot;',
-    "'": '&#39;',
-    "/": '&#x2F;'
-};
-
 function validateInput(string) 
 {
     return string.match(/[&<>"'\/]/g);

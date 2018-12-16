@@ -7,6 +7,9 @@
   include_once('../utils/utils.php');
   include("../database/channels/is_subscribed.php");
 
+  if(!isset($_SESSION['username']))
+    die(header("Location: ../login/login.php?error=nosession"));
+
   $channel_info = get_channel_description($_GET['channel']);
 
   if(empty($channel_info[0])){
@@ -40,7 +43,7 @@
     <?php include('../templates/navbar/navbar.php');?>
     <?php include('../templates/channels/channels.php');?>
     <section class="channel_info">
-      <p id="channel_name"><?=$_GET['channel'];?></p>
+      <h1 id="channel_name"><?=$_GET['channel'];?></h1>
       <p id="channel_description"> <?=htmlspecialchars($channel_info['channel_description']);?> </p>
       <p id="expand_bar"> >> </p>
       <div id="subscribe">
