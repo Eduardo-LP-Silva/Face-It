@@ -1,4 +1,5 @@
 <?php
+  include_once('../login/session.php');
   include_once('../database/connection.php');
   include_once('../database/comments/get_comments.php');
   include_once('../database/stories/get_stories.php');
@@ -9,7 +10,8 @@
   $story = get_story_info($_GET['post']);
 
   if(!$story){
-    die(header('Location: ../front_page/front_page.php'));
+  $_SESSION['error_message'] = 'POST NOT FOUND';
+    die(header('Location: ../utils/errorPage.php'));
   }
   $comments = get_story_comments($story['story']);
   $nComments = get_subcomments_by_story($story['story']);

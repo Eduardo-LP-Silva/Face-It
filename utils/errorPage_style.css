@@ -18,13 +18,30 @@ body p
 }
 
 #btn:hover, #btn:focus {
-  	color: #000;
   	text-decoration: none;
   	cursor: pointer;
 }
 
 #btn
 {
+    text-decoration: none;
 	border-radius: 4px;
-  	background-color: red;
+      background-color: red;
+      color:black;
 }
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
