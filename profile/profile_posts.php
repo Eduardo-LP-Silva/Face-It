@@ -13,7 +13,6 @@
 
 ?>
 
-<!-- Replace info with respective user's -->
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -39,7 +38,7 @@
       {
     ?>
       <div class="history_item">
-        <a href=<?= "../post/post.php?post=" . $user_story['ID']?>> <?=htmlspecialchars($user_story['title'])?> </a> <!-- Change href's to post -->
+        <a href=<?= "../post/post.php?post=" . $user_story['ID']?>> <?=htmlspecialchars($user_story['title'])?> </a>
         <img src=<?php if($user_story['picture'] == null) {echo '../assets/no_image.png';}
                 else echo htmlspecialchars($user_story['picture']);?>
           alt="Post's minimized image or logo" >

@@ -3,7 +3,6 @@
   include_once("../database/comments/get_comments.php"); 
 ?>
 
-<!-- Replace info with respective user's -->
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -42,6 +41,5 @@
         </div>
       </div>
       <?php }; ?>
-    </section>
   </body>
 </html>

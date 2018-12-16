@@ -16,7 +16,7 @@
   </header>
   <div class="login-page">
     <div id="form">
-      <form id="login-form" action="log.php" method="POST"> <!-- Add action-->
+      <form id="login-form" action="log.php" method="POST">
         <input id="username" type="text" name="uid" placeholder="username"/>
         <input id="password" type="password" name="pw" placeholder="password"/>
         <button type="submit" name="login-submit">login</button>

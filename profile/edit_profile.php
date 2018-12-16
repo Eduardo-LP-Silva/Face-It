@@ -28,19 +28,19 @@
             <div class="group">
             <input type='hidden' value=<?= $_SESSION['username'] ?> name='client'/>
             <input type="text" name='avatar'>
-                <label for="">Avatar</label>
+                <label for="avatar">Avatar</label>
             </div>
             <div class="group">
                 <input type="password" name='password'>
-                <label for="">Password</label>
+                <label for="password">Password</label>
             </div>
             <div class="group">
                 <input type="email" name='email'>
-                <label for="">Email</label>
+                <label for="email">Email</label>
             </div>
             <div class="group">
                 <input type="text" name='description'>
-                <label for="">Description</label>
+                <label for="description">Description</label>
             </div>
             <button type="submit" style="color: white;">Submit</button>
         </form>
