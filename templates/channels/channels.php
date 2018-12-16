@@ -11,7 +11,7 @@
 
 <form id="channels" action="../channels/channel.php" method="get"> 
   <ul>
-    <li> <a href="front_page.html"> New Channel </a> </li>
+    <li> <a href="../channels/create_channel.php"> New Channel </a> </li>
     <li> <a href="../front_page/all.php">All</a> </li>
     <li> <a href="../front_page/front_page.php">Front Page</a> </li>
     <?php 

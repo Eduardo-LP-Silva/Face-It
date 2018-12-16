@@ -5,7 +5,6 @@
         global $db;
         global $front_page_stories;
 
-        //Mudar o client
         $stmt = $db->prepare
         (
             "SELECT story, points

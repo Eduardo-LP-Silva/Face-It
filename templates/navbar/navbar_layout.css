@@ -1,7 +1,7 @@
 body > header
 {
     display:grid;
-    grid-template-columns: [start] 12em [subtitle] 20em [nav] 1fr [end];
+    grid-template-columns: [start] 12em [subtitle] 50em [nav] 1fr [end];
     grid-template-rows: 1fr;
     position: fixed;
     width: 100%;

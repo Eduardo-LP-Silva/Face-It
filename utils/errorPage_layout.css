@@ -17,6 +17,8 @@ body p
 
 #btn
 {
-	margin: auto;
-	padding: 10px 24px;
+    margin: auto;
+    min-width: 5em;
+    width: 30%;
+	padding: 1em 0.1em;
 }

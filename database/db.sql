@@ -98,17 +98,6 @@ BEGIN
     UPDATE story
     SET comment_number = comment_number + 1
     where story.story = New.story;
-
-    UPDATE story
-    SET comment_number = comment_number + 1
-    WHERE story.story in 
-    (
-        SELECT DISTINCT story.story
-        FROM comment C1, comment C2, story
-        WHERE C1.story = story.story
-        AND C2.parent_comment = C1.comment
-        AND C2.comment = New.comment
-    );
 END;
 
 CREATE TRIGGER update_comment_number_on_delete
@@ -118,17 +107,6 @@ BEGIN
     UPDATE story
     SET comment_number = comment_number - 1
     where story.story = Old.story;
-
-    UPDATE story
-    SET comment_number = comment_number -1
-    WHERE story.story in 
-    (
-        SELECT DISTINCT story.story
-        FROM comment C1, comment C2, story
-        WHERE C1.story = story.story
-        AND C2.parent_comment = C1.comment
-        AND C2.comment = Old.comment
-    );
 END;
 
 CREATE TRIGGER update_story_points_on_insert
@@ -312,7 +290,7 @@ INSERT INTO comment(comment, client, story, parent_comment, content, comment_dat
     (1,'edu', 8, NULL, 'He studied Architecture, especially opera houses blueprints.', '2018-12-04 14:30:00', 0);
     
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES
-    (2, 'joao', NULL, 1, 'Thank you.', '2018-12-04 16:30:00', 0);
+    (2, 'joao', 8, 1, 'Thank you.', '2018-12-04 16:30:00', 0);
 
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
     (3,'edu', 12, NULL, 'Bom dia', '2018-12-17 00:01:00', 0);

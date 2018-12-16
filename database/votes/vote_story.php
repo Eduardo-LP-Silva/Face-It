@@ -14,12 +14,16 @@
         "INSERT INTO likes_story(client, story, points) VALUES (:client , :story, :vote)"
     );
 
+    $db->beginTransaction();
+
     $stmt->execute(array
     (
         ':client' => $client,
         ':story' => $story_id,
         ':vote' => $vote
     ));
+
+    $db->commit();
 
     echo 0;
 

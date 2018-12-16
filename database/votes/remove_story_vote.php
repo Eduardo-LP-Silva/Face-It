@@ -14,12 +14,16 @@
         "DELETE FROM likes_story WHERE story = :story AND client = :client AND points = :points"
     );
 
+    $db->beginTransaction();
+
     $stmt->execute(array
     (
         ':client' => $client,
         ':story' => $story_id,
         ':points' => $vote
     ));
+
+    $db->commit();
 
     echo 0;
 ?>

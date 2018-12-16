@@ -4,9 +4,6 @@
   include_once('../database/client/get_client.php');
 
   $picture = get_client_picture($_SESSION['username'])['picture'];
-
-  if(!$picture)
-    $picture = "../assets/default_profile_photo.png";
 ?>
 
 <header>

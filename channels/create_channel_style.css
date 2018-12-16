@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+body
+{
+    background-color: black;
+}
+
+body *
+{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+#create_channel
+{
+    background-color: rgb(43, 42, 42);
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em red;
+}
+
+#channel_name
+{
+    font-size: 13pt;
+    border-radius: 0.3em;
+    transition: all 0.3s;
+}
+
+#channel_name:focus, #channel_description:focus
+{
+    border-color: red;
+}
+
+#channel_submit
+{
+    border-radius: 0.3em;
+    font-size: 16pt;
+    text-align: center;
+    border: none;
+    transition: all 0.2s;
+}
+
+#channel_submit:hover
+{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
