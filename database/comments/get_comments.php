@@ -6,7 +6,6 @@
     {
         global $db;
 
-        //Mudar para user
         $stmt = $db->prepare
         (
             "SELECT comment.comment as ID, comment.content as content, comment.points as points, comment.story as story,

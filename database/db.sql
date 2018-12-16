@@ -98,6 +98,17 @@ BEGIN
     UPDATE story
     SET comment_number = comment_number + 1
     where story.story = New.story;
+
+    UPDATE story
+    SET comment_number = comment_number + 1
+    WHERE story.story in 
+    (
+        SELECT DISTINCT story.story
+        FROM comment C1, comment C2, story
+        WHERE C1.story = story.story
+        AND C2.parent_comment = C1.comment
+        AND C2.comment = New.comment
+    );
 END;
 
 CREATE TRIGGER update_comment_number_on_delete
@@ -107,6 +118,17 @@ BEGIN
     UPDATE story
     SET comment_number = comment_number - 1
     where story.story = Old.story;
+
+    UPDATE story
+    SET comment_number = comment_number -1
+    WHERE story.story in 
+    (
+        SELECT DISTINCT story.story
+        FROM comment C1, comment C2, story
+        WHERE C1.story = story.story
+        AND C2.parent_comment = C1.comment
+        AND C2.comment = Old.comment
+    );
 END;
 
 CREATE TRIGGER update_story_points_on_insert
@@ -196,7 +218,6 @@ INSERT INTO user_profile(client, personal_description, picture) VALUES ('edu', '
     'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/28379613_1425786984197475_7671652175703607841_n.jpg?_nc_cat=103&_nc_ht=scontent.flis7-1.fna&oh=bebf7289651fd1f8a4b077f378b1a47d&oe=5CA6507D');
 INSERT INTO user_profile(client, personal_description, picture) VALUES ('joao', 'O Deslocado', 
     'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-9/24993344_1632481790124350_4765604731530085149_n.jpg?_nc_cat=100&_nc_ht=scontent.flis7-1.fna&oh=ee96951c81ee47104586f7da14b5f7d8&oe=5CAF13C9');
--- INSERT INTO user_profile(client, personal_description, picture) VALUES ('FF7', 'O Marinheiro', 'https://scontent.flis7-1.fna.fbcdn.net/v/t1.0-1/p160x160/47252887_2485383431488395_7276177372590637056_n.jpg?_nc_cat=106&_nc_ht=scontent.flis7-1.fna&oh=230ee2703db93c913eca2b893da2f219&oe=5C9E9060');
 
 INSERT INTO channel(channel_name, channel_description) VALUES ('WatchPeopleDie', 'A place for morbid curiosity');
 INSERT INTO channel(channel_name, channel_description) VALUES ('Pics', 'A place to share photographs and pictures.');
@@ -238,7 +259,6 @@ INSERT INTO client_channel(client, channel) VALUES ('joao', 'Dankmemes');
 INSERT INTO client_channel(client, channel) VALUES ('joao', 'Comics');
 INSERT INTO client_channel(client, channel) VALUES ('joao', 'CrazyIdeas');
 INSERT INTO client_channel(client, channel) VALUES ('edu', 'History');
-INSERT INTO client_channel(client, channel) VALUES ('edu', 'WatchPeopleDie');
 INSERT INTO client_channel(client, channel) VALUES ('edu', 'FEUP');
 INSERT INTO client_channel(client, channel) VALUES ('edu', 'Programming');
 INSERT INTO client_channel(client, channel) VALUES ('edu', 'Dankmemes');
@@ -248,23 +268,66 @@ INSERT INTO client_channel(client, channel) VALUES ('edu', 'Aviation');
 INSERT INTO client_channel(client, channel) VALUES ('edu', 'Conspiracy');
 
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (1, 'joao', 'Hello World', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. 
-    O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os 
-    caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto 
-    para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a 
-    disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os 
-    programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.',
-    NULL, 1, 0, '2018-12-02 14:29:30.0000', 'WatchPeopleDie');
+    (1, 'edu', '[December 15th, 1918]', 'California. Cecil B. DeMille has finished filming his latest production, 
+    a remake of his first film, "The Squaw Man", starring Elliot Dexter and Katherine McDonald.',
+    'https://external-preview.redd.it/FAftHGbQ9hl2AIzEFK8QGTOlUEZjW3ibIKn7xEi8mEA.jpg?auto=webp&s=40d841365f7fcccf413319965784b5779a792e11', 
+    0, 0, '2018-12-15 14:29:30.0000', '100yearsAgo');
 INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES 
-    (2, 'edu', 'O Deslocado é mesmo cabaça', NULL, NULL, 1, 0, '2018-12-02 14:45:00.0000', 'WatchPeopleDie');
+    (2, 'edu', '[December 14th, 1918]', '6-inch howitzer on the bank of the Rhine at Cologne, 14 December 1918.', 
+    'https://external-preview.redd.it/pX7JUv_GgcRNMw7Sh_CXNWiAoHUD2hoNVNYwNlqEfak.jpg?auto=webp&s=cd877099c5f159026713af26e4136037e4118a75', 
+    0, 0, '2018-12-14 14:45:00.0000', '100yearsAgo');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (3, 'joao', 'How is dark mode still not a big thing?', 'I get that some individual apps have the option, 
+    but virtually none of the apps or Android phones I consistently use have this option. I think Reddit and YouTube 
+    are the only exceptions here. Mainly using the Pixel, its blinding trying to browse the internet, change any 
+    settings on the phone, or use any Google service. I dont want to come across as entitled or anything, Im just 
+    genuinely curious how a huge majority of developers dont understand how important this is. Especially for a huge 
+    company like Google. The big white screen so awful at night! Why?', NULL, 0, 0, '2018-11-02 21:00:00', 'Android');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (4, 'edu', 'Embraer L500 With a unique paint job', NULL, 'https://i.redd.it/v76m7ykdbh321.jpg', 0, 0, 
+    '2018-12-12 12:00:00', 'Aviation');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (5, 'joao', 'Oslo, Norway', NULL, 'https://i.redd.it/vu5iiw6nhh421.jpg', 0, 0, '2018-10-20 22:00:00', 'Pics');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (6, 'joao', 'Fortnite should create a Wikipedia-themed skin with all proceeds donated to Wikipedia', 
+    'The only way to save Wikipedia', NULL, 0, 0, '2018-12-05 16:00:00', 'CrazyIdeas');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (7, 'joao', 'Dead roach', NULL, 'https://i.redd.it/k0uv0fpaui321.jpg', 0, 0, '2018-12-04 13:00:00', 'Comics');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (8, 'joao', 'What did Hitler do in his free time?', 'When he wasnt conferring with generals or going to rallies, 
+    what did he do? I know he liked to paint, but what else?', NULL, 0, 0, '2018-12-03 15:00:00', 'History');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (9, 'edu', 'cowabaguette it is', NULL, 'https://i.redd.it/e73u37xlng421.jpg', 0, 0, '2018-12-05 15:00:00', 
+    'Dankmemes');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (10, 'edu', 'Friendly Reminder....', NULL, 'https://i.redd.it/3ry5ltf119321.jpg', 0, 0, '2018-12-06 16:00:00', 
+    'Conspiracy');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (11, 'edu', 'Visual Studio Code (Version 1.30) Released', NULL, NULL, 0, 0, '2018-12-12 16:30:00', 'Programming');
+INSERT INTO story(story, client, title, content, picture, points, comment_number, post_date, channel) VALUES
+    (12, 'joao', 'LTW > PLOG', 'Só tinha isto a dizer', NULL, 0, 0, '2018-12-16 22:00:00', 'FEUP');
+
 
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (NULL,'edu', 1, NULL, 'Wrong channel', '2018-12-02 14:30:00', 2);
+    (1,'edu', 8, NULL, 'He studied Architecture, especially opera houses blueprints.', '2018-12-04 14:30:00', 0);
+    
+INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES
+    (2, 'joao', NULL, 1, 'Thank you.', '2018-12-04 16:30:00', 0);
+
 INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (NULL,'joao', 1, 1, 'True', '2018-12-02 14:31:00', 1);
-INSERT INTO comment(comment, client, story, parent_comment, content, comment_date, points) VALUES 
-    (NULL,'joao', 1, NULL, 'Teste', '2018-12-02 14:31:00.0000', 1);
+    (3,'edu', 12, NULL, 'Bom dia', '2018-12-17 00:01:00', 0);
 
 INSERT INTO likes_story(client, story, points) VALUES ('joao', 1, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 1, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 2, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 3, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('joao', 3, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 4, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 8, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('joao', 8, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 9, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('joao', 9, 1);
+INSERT INTO likes_story(client, story, points) VALUES ('edu', 12, -1);
 
-INSERT INTO likes_comment(client, comment, points) VALUES ('edu', 1, 1);
+
+INSERT INTO likes_comment(client, comment, points) VALUES ('joao', 1, 1);
