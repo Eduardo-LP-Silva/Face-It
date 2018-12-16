@@ -8,9 +8,13 @@
 
   $story = get_story_info($_GET['post']);
 
+  if(!$story){
+    die(header('Location: ../front_page/front_page.php'));
+  }
   $comments = get_story_comments($story['story']);
   $nComments = get_subcomments_by_story($story['story']);
   $nComments2 = get_comments_by_story($story['story']);
+  $nTotalTest = sizeof($nComments) + sizeof($nComments2);
   $nTotal = $story['comment_number'];
 
 ?>
@@ -44,7 +48,7 @@
 
     <div id="commentInput">
       <form action="addComment.php" method="post"> 
-          <p id = "commentsNumber"><?php echo $nTotal?> Comments</p>
+          <p id = "commentsNumber"><?php echo $nTotalTest?> Comments</p>
           <input type='hidden' value=<?php echo $story['client'];?> name='client'/> 
           <input type='hidden' value=<?php echo $story['story'];?> name='story'/> 
           <input type="text" id="name" name="user_name" placeholder="       Add a comment"/>
@@ -67,9 +71,12 @@
                   <h6 class="comment-name by-author"><a href=<?="../profile/profile_posts.php?user=" . $comment['username']?>> 
                   <?php echo htmlspecialchars($comment['username']);?> </a></h6>
                   <span>20 minutes ago</span> <!-- Mudar/Retirar -->
+                  <i class="fas fa-thumbs-down"></i>
+                  <i class="fas fa-thumbs-up"></i>
                   <i class="fa fa-reply"></i>
                   <i class="fas fa-trash"></i> <!-- Mudar para so mostar caso o poster do comment seja igual ao da session-->
                   <form action="removeComment.php" method="post"> 
+                      <input type='hidden' value=<?php echo $story['story'];?> name='story'/> 
                       <input type='hidden' value=<?php echo $comment['ID'];?> name='commentId'/> 
                   </form>
                 </div>
@@ -90,7 +97,7 @@
                   <div class="comment-content" >
                     <form action="addReply.php" method="post"> 
                       <input type="text" id="name" name="user_name"/>
-                      <input type='hidden' value="edu" name='client'/> <!-- Mudar o edu -->
+                      <input type='hidden' value=<?= $_SESSION['username'] ?> name='client'/> <!-- Mudar o edu -->
                       <input type='hidden' value=<?php echo $story['story'];?> name='story'/> 
                       <input type='hidden' value=<?php echo $comment['ID'];?> name='parent'/>
                     </form>
@@ -109,6 +116,7 @@
                     <span>10 minutes ago</span>
                     <i class="fas fa-trash"></i> <!-- Mudar para so mostar caso o poster do comment seja igual ao da session-->
                     <form action="removeCommentReply.php" method="post"> 
+                      <input type='hidden' value=<?php echo $story['story'];?> name='story'/>   
                       <input type='hidden' value=<?php echo $commentReply['ID'];?> name='commentId'/> 
                   </form>
                   </div>

@@ -11,6 +11,6 @@ $stmt = $db->prepare("INSERT INTO comment(comment, client, story, parent_comment
                     VALUES (NULL, ?, ?, $parent, ?, '2018-12-02 14:31:00.0000', 0)");
 $stmt->execute(array($client, $story, $content));
 
-header("Location: post.php?success=addcomment");
+header("Location: post.php?post=". $story);
 exit();
 ?>

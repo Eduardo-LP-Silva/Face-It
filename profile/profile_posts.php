@@ -34,7 +34,7 @@
         <a href=<?= "../post/post.php?post=" . $user_story['ID']?>> <?=htmlspecialchars($user_story['title'])?> </a> <!-- Change href's to post -->
         <img src=<?php if($user_story['picture'] == null) {echo '../assets/no_image.png';}
                 else echo htmlspecialchars($user_story['picture']);?>
-          alt="Post's minimized image or logo" />
+          alt="Post's minimized image or logo" >
         <div class="points">
           <img src="../assets/like_dislike.png" alt="Points Symbol"/>
           <p> <?=$user_story['points']?> </p>
