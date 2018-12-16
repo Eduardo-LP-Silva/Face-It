@@ -24,6 +24,11 @@
 			exit();
 		}
 
+		else if(!preg_match("/^[a-zA-Z0-9]*$/",$password)){
+			header("Location: login.php?error=invalidpassword");
+			exit();
+		}
+
 		else{
 
 			if(checkUsername($username)){

@@ -4,8 +4,10 @@
     {
         include_once("../../login/session.php");
 
-        $db = new PDO('sqlite:../db.db');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $_POST['database_path'] = '../db.db';
+        include_once('../connection.php');
+
+        global $db;
     
         $client = $_SESSION['username'];
         $story = $_GET['story'];

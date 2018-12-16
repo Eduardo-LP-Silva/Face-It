@@ -6,8 +6,10 @@
     $client = $_SESSION['username'];
     $vote = $_GET['vote'];
 
-    $db = new PDO('sqlite:../db.db');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $_POST['database_path'] = '../db.db';
+    include_once('../connection.php');
+
+    global $db;
 
     $stmt = $db->prepare
     (

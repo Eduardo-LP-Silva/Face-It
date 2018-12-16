@@ -3,6 +3,9 @@
    include_once('../database/connection.php');
    include_once('../database/channels/get_channels.php');
 
+   if(!isset($_SESSION['username']))
+    die(header("Location: ../login/login.php?error=nosession"));
+
    $channel_info = get_channel_description($_GET['channel']);
 
     if(empty($channel_info[0])){
