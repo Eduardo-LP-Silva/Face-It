@@ -6,9 +6,8 @@
   include_once("../database/client/get_client.php"); 
 
   if(!checkUsername($_GET['user'])){
-        $_POST['error_message'] = 'PROFILE NOT FOUND';
+        $_SESSION['error_message'] = 'PROFILE NOT FOUND';
         die(header("Location: ../utils/errorPage.php"));
-       
   }
 
 
