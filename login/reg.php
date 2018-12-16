@@ -38,7 +38,8 @@
 			else{
 				insertClient($username, $password, $userMail);
 				insertProfile($username);
-				header("Location: login.php?signup=success");
+				$_SESSION['username'] = $username;
+				header("Location: ../front_page/all.php");
 				exit();
 			}
 		}
