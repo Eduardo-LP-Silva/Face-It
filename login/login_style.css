@@ -20,12 +20,12 @@ body
 
   text-decoration: none;
   text-align: center;
-  color: orangered;
+  color: white;
 }
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding-top: 1em;
   margin: auto;
 }
 
