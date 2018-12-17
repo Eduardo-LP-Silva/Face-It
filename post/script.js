@@ -1,5 +1,6 @@
 let icons = document.getElementsByClassName("fa-reply");
 let trashButtons = document.getElementsByClassName("fa-trash");
+let likeButtons = document.getElementsByClassName("fa-thumbs-up");
 
 for (let i = 0; i < icons.length; i++){
     icons[i].addEventListener("click", function(){
@@ -17,3 +18,19 @@ for (let i = 0; i < trashButtons.length; i++){
         form.submit();
     });
 }
+
+for (let i = 0; i < likeButtons.length; i++){
+    likeButtons[i].addEventListener("click", function(){
+        if (likeButtons[i].style.color == "rgb(3, 101, 140)"){
+            likeButtons[i].style.color = "";
+        }
+        else{
+            likeButtons[i].style.color = "rgb(3, 101, 140)";
+        }
+
+        let form = likeButtons[i]["nextElementSibling"];
+        console.log(form);
+        form.submit();
+    });
+}
+

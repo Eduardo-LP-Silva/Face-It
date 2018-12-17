@@ -18,6 +18,7 @@
   $nComments2 = get_comments_by_story($story['story']);
   $nTotalTest = sizeof($nComments) + sizeof($nComments2);
   $nTotal = $story['comment_number'];
+  $like = 0;
 
 ?>
 
@@ -73,14 +74,38 @@
                   <h6 class="comment-name by-author"><a href=<?="../profile/profile_posts.php?user=" . $comment['username']?>> 
                   <?php echo htmlspecialchars($comment['username']);?> </a></h6>
                   <span>20 minutes ago</span> <!-- Mudar/Retirar -->
-                  <i class="fas fa-thumbs-down"></i>
-                  <i class="fas fa-thumbs-up"></i>
+                  <span style = "margin-left:29em;"><?php echo get_comment_upvotes($comment['ID'])[0]?> Likes</span>
+                  <?php 
+                  if(get_comment_like($comment['ID'], $_SESSION['username'])[0] > 0){ ?>
+                    <i class="fas fa-thumbs-up" style = "color:#03658c;"></i>
+                    <form action="likeCommentRemoval.php" method="post"> 
+                      <input type='hidden' value=<?php echo $story['story'];?> name='story'/>   
+                      <input type='hidden' value=<?php echo $comment['ID'];?> name='comment'/> 
+                      <input type='hidden' value=<?php echo $_SESSION['username'];?> name='client'/> 
+                    </form>
+                  <?php } ?>
+                  <?php 
+                  if(get_comment_like($comment['ID'], $_SESSION['username'])[0] == 0){ ?>
+                    <i class="fas fa-thumbs-up"></i>
+                    <form action="likeComment.php" method="post"> 
+                      <input type='hidden' value=<?php echo $story['story'];?> name='story'/>   
+                      <input type='hidden' value=<?php echo $comment['ID'];?> name='comment'/> 
+                      <input type='hidden' value=<?php echo $_SESSION['username'];?> name='client'/> 
+                    </form>
+                  <?php } ?>
+                  
                   <i class="fa fa-reply"></i>
-                  <i class="fas fa-trash"></i> <!-- Mudar para so mostar caso o poster do comment seja igual ao da session-->
-                  <form action="removeComment.php" method="post"> 
-                      <input type='hidden' value=<?php echo $story['story'];?> name='story'/> 
-                      <input type='hidden' value=<?php echo $comment['ID'];?> name='commentId'/> 
-                  </form>
+
+                  <?php 
+                  if($_SESSION['username'] == $comment['username']){ ?>
+                    <i class="fas fa-trash"></i> <!-- Mudar para so mostar caso o poster do comment seja igual ao da session-->
+                    <form action="removeComment.php" method="post"> 
+                        <input type='hidden' value=<?php echo $story['story'];?> name='story'/> 
+                        <input type='hidden' value=<?php echo $comment['ID'];?> name='commentId'/> 
+                    </form>
+                  <?php } ?>
+
+
                 </div>
                 <div class="comment-content">
                   <?php echo htmlspecialchars($comment['content']);?>
@@ -116,11 +141,34 @@
                     <h6 class="comment-name by-author"><a href=<?="../profile/profile_posts.php?user=" . $commentReply['username']?>>
                     <?php echo htmlspecialchars($commentReply['username']);?></a></h6>
                     <span>10 minutes ago</span>
-                    <i class="fas fa-trash"></i> <!-- Mudar para so mostar caso o poster do comment seja igual ao da session-->
-                    <form action="removeCommentReply.php" method="post"> 
+                    <span style = "margin-left:26em;"><?php echo get_comment_upvotes($commentReply['ID'])[0]?> Likes</span>
+                    <?php 
+                  if(get_comment_like($commentReply['ID'], $_SESSION['username'])[0] > 0){ ?>
+                    <i class="fas fa-thumbs-up" style = "color:#03658c;"></i>
+                    <form action="likeCommentRemoval.php" method="post"> 
                       <input type='hidden' value=<?php echo $story['story'];?> name='story'/>   
-                      <input type='hidden' value=<?php echo $commentReply['ID'];?> name='commentId'/> 
-                  </form>
+                      <input type='hidden' value=<?php echo $commentReply['ID'];?> name='comment'/> 
+                      <input type='hidden' value=<?php echo $_SESSION['username'];?> name='client'/> 
+                    </form>
+                  <?php } ?>
+                  <?php 
+                  if(get_comment_like($commentReply['ID'], $_SESSION['username'])[0] == 0){ ?>
+                    <i class="fas fa-thumbs-up"></i>
+                    <form action="likeComment.php" method="post"> 
+                      <input type='hidden' value=<?php echo $story['story'];?> name='story'/>   
+                      <input type='hidden' value=<?php echo $commentReply['ID'];?> name='comment'/> 
+                      <input type='hidden' value=<?php echo $_SESSION['username'];?> name='client'/> 
+                    </form>
+                  <?php } ?>
+
+                  <?php 
+                  if($_SESSION['username'] == $commentReply['username']){ ?>
+                    <i class="fas fa-trash"></i> <!-- Mudar para so mostar caso o poster do comment seja igual ao da session-->
+                      <form action="removeCommentReply.php" method="post"> 
+                        <input type='hidden' value=<?php echo $story['story'];?> name='story'/>   
+                        <input type='hidden' value=<?php echo $commentReply['ID'];?> name='commentId'/> 
+                    </form>
+                  <?php } ?>
                   </div>
                   <div class="comment-content">
                     <?php echo htmlspecialchars($commentReply['content']);?>

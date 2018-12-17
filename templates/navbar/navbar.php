@@ -11,7 +11,7 @@
   <a id="subtitle" href="../front_page/front_page.php"> <?=htmlspecialchars($_GET['banner'])?> </a>
   <nav>
       <a id="profile_pic" href=<?="../profile/profile_posts.php?user=" . $_SESSION['username']?>>
-        <img src=<?=$picture?> alt="Profile Picture">
+        <img style="margin-left:35em;"src=<?=$picture?> alt="Profile Picture">
       </a>
       <a id="profile" href=<?="../profile/profile_posts.php?user=" . $_SESSION['username']?>> 
         <?=$_SESSION['username']?> </a>

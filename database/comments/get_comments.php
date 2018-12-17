@@ -122,4 +122,74 @@
         return $user_comments;
     }
 
+    function get_comment_upvotes($commentID)
+    {
+        global $db;
+
+        $stmt = $db->prepare
+        (
+            "SELECT count(*)
+            FROM likes_comment
+            WHERE comment = ?
+            AND points = 1"
+        );
+
+        $stmt->execute(array($commentID));
+
+       return $stmt->fetch();
+    }
+
+    function get_comment_downvotes($commentID)
+    {
+        global $db;
+
+        $stmt = $db->prepare
+        (
+            "SELECT count(*)
+            FROM likes_comment
+            WHERE comment = ?
+            AND points = -1"
+        );
+
+        $stmt->execute(array($commentID));
+
+        return $stmt->fetch();
+    }
+
+    function get_comment_like($commentID, $client)
+    {
+        global $db;
+
+        $stmt = $db->prepare
+        (
+            "SELECT count(*)
+            FROM likes_comment
+            WHERE comment = ?
+            and client = ?
+            AND points = 1"
+        );
+
+        $stmt->execute(array($commentID, $client));
+
+        return $stmt->fetch();
+    }
+
+    function get_comment_dislike($commentID, $client)
+    {
+        global $db;
+
+        $stmt = $db->prepare
+        (
+            "SELECT count(*)
+            FROM likes_comment
+            WHERE comment = ?
+            and client = ?
+            AND points = -1"
+        );
+
+        $stmt->execute(array($commentID));
+
+        return $stmt->fetch();
+    }
+
 ?>
