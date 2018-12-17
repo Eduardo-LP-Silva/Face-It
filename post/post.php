@@ -73,8 +73,7 @@
                 <div class="comment-head">
                   <h6 class="comment-name by-author"><a href=<?="../profile/profile_posts.php?user=" . $comment['username']?>> 
                   <?php echo htmlspecialchars($comment['username']);?> </a></h6>
-                  <span>20 minutes ago</span> <!-- Mudar/Retirar -->
-                  <span style = "margin-left:29em;"><?php echo get_comment_upvotes($comment['ID'])[0]?> Likes</span>
+                  <span style = "margin-left:37em;"><?php echo get_comment_upvotes($comment['ID'])[0]?> Likes</span>
                   <?php 
                   if(get_comment_like($comment['ID'], $_SESSION['username'])[0] > 0){ ?>
                     <i class="fas fa-thumbs-up" style = "color:#03658c;"></i>
@@ -140,8 +139,7 @@
                   <div class="comment-head">
                     <h6 class="comment-name by-author"><a href=<?="../profile/profile_posts.php?user=" . $commentReply['username']?>>
                     <?php echo htmlspecialchars($commentReply['username']);?></a></h6>
-                    <span>10 minutes ago</span>
-                    <span style = "margin-left:26em;"><?php echo get_comment_upvotes($commentReply['ID'])[0]?> Likes</span>
+                    <span style = "margin-left:34em;"><?php echo get_comment_upvotes($commentReply['ID'])[0]?> Likes</span>
                     <?php 
                   if(get_comment_like($commentReply['ID'], $_SESSION['username'])[0] > 0){ ?>
                     <i class="fas fa-thumbs-up" style = "color:#03658c;"></i>
